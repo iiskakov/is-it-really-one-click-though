@@ -25,6 +25,7 @@
     "payload": "3.0.0-beta.58",
     "react": "^19.0.0-rc-f994737d14-20240522",
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
+    "react-player": "3.0.0-canary.0",
     "sharp": "0.32.6"
   },
   "devDependencies": {
