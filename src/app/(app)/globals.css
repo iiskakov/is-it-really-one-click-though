@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+}
+
+/* :root { */
+/*   --background: #ffffff; */
+/*   --foreground: #171717; */
+/* } */
+
+/* @media (prefers-color-scheme: dark) { */
+/*   :root { */
+/*     --background: #0a0a0a; */
+/*     --foreground: #ededed; */
+/*   } */
+/* } */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-synthesis: none;
+}
+
+.accordion-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: 22vw;
+  width: 700px;
+}
+
+.accordion-item {
+  cursor: pointer;
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 550px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
+}
+
+.accordion-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.accordion-title {
+  font-weight: 900;
+  font-size: 36px;
+  text-align: left;
+  line-height: 36px;
+  height: 290px;
+  word-break: break-word; /* Use word-break instead of word-wrap */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: normal; /* Ensure white-space is set to normal to allow breaks */
+  overflow-wrap: break-word; /* Ensure text breaks within words if necessary */
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none;
+}
+
+.accordion-year {
+  font-size: 18px;
+  font-family: sans-serif;
+  border-style: solid;
+  border-color: black;
+  font-weight: bold;
+  border-width: 1px;
+  padding: 6px;
+  text-align: center;
+  margin-top: 10px;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none;
+}
+
+.accordion-content {
+  width: 300px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.description-line {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  margin: 5px 0;
+  padding-top: 3px;
+}
+
+.accordion-footer {
+  width: 80%;
+}
+
+.accordion-header-logo {
+  display: flex;
+  width: 60px;
+  margin-top: 10px;
+  justify-content: center; /* Center horizontally if needed */
+  align-items: center; /* Center vertically */
+  height: 40px; /* Make sure the div takes the full height of its parent */
+}
+
+.accordion-oppo {
+  width: 100%;
+  margin-top: 5px;
+  height: auto;
+  opacity: 0.9;
+  display: block;
+  align-self: flex-end;
+}
+
+.accordion-hyundai {
+  width: 80%;
+  margin-top: 5px;
+  height: auto;
+  opacity: 0.9;
+  display: block;
+  align-self: flex-end;
+}
+
+.accordion-redbull {
+  width: 80%;
+  margin-top: 5px;
+  height: auto;
+  opacity: 0.9;
+  display: block;
+  align-self: flex-end;
+}
+
+.accordion-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1%) brightness(0.6);
+  align-self: flex-end;
+  mix-blend-mode: difference;
+}
+
+.accordion-hq {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  align-self: flex-end;
+}
