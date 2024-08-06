@@ -28,7 +28,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URL,
+      connectionString: process.env.POSTGRES_URL || '',
     },
   }),
 
@@ -38,14 +38,14 @@ export default buildConfig({
       collections: {
         ['media']: true,
       },
-      bucket: process.env.S3_BUCKET_NAME,
+      bucket: process.env.S3_BUCKET_NAME || '',
       config: {
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY,
-          secretAccessKey: process.env.S3_SECRET_KEY,
+          accessKeyId: process.env.S3_ACCESS_KEY || '',
+          secretAccessKey: process.env.S3_SECRET_KEY || '',
         },
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
+        region: process.env.S3_REGION || '',
+        endpoint: process.env.S3_ENDPOINT || '',
       },
     }),
   ],
