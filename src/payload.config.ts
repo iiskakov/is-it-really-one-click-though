@@ -6,7 +6,6 @@ import sharp from 'sharp'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
-import { Projects } from './collections/Projects'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
