@@ -10,7 +10,7 @@ const textContainerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // Adjust this value for the desired delay between children
+      staggerChildren: 0.3, // dAdjust this value for the desired delay between children
     },
   },
 };
