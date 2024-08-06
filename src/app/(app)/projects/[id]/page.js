@@ -42,9 +42,9 @@ export default function ProjectPage({ params }) {
       <Link href="/projects" className="text-lg text-white mb-8 inline-block">
         &lt; BACK
       </Link>
-      <div className="h-[70vh] w-autorelative overflow-hidden mb-8">
-         <VideoPlayer url={project.video} />
-      </div>
+      {/* <div className="h-[70vh] w-autorelative overflow-hidden mb-8"> */}
+      {/*    <VideoPlayer url={project.video} /> */}
+      {/* </div> */}
       <h1 className={`text-4xl font-bold text-white mb-2 ${anton.className}`}>
         {project.title}
       </h1>
