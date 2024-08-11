@@ -17,6 +17,9 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
+  db: {
+    defaultIDType: number;
+  };
   globals: {};
   locale: null;
   user: User & {
@@ -28,12 +31,15 @@ export interface UserAuthOperations {
     email: string;
   };
   login: {
-    password: string;
     email: string;
+    password: string;
   };
   registerFirstUser: {
     email: string;
     password: string;
+  };
+  unlock: {
+    email: string;
   };
 }
 /**
@@ -96,6 +102,15 @@ export interface Project {
   } | null;
   updatedAt: string;
   createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

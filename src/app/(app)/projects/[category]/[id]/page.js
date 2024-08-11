@@ -36,8 +36,18 @@ const allProjects = [
 ];
 
 
-const ImageTextBlock3 = ({ variant }) => {
-  // Define dynamic classes based on the variant
+const ImageTextBlock3 = ({ data }) => {
+  if(!data.fields)
+    return null
+
+  const variant = data.fields.variant
+  const imageUrl = data.fields.picture.url
+  const image2Url = data.fields.picture2.url
+  const title = data.fields.title
+  const text = data.fields.text1
+
+
+
   const imgPositionClasses = {
     "variant1": "order-2 md:order-2", // Image on the left
     "variant2": "order-2 md:order-2", // Image on the left
@@ -53,27 +63,25 @@ const ImageTextBlock3 = ({ variant }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-6 w-full h-[95vh] mx-auto">
+    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 w-full h-[95vh] mx-auto">
       <div className={`w-2/6 h-full flex gap-4  ${textPositionClasses[variant]}`}>
         <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
-            Paragraph
+            {title}
           </h2>
           <p className="text-lg md:text-[32px] leading-10">
-            This award celebrates the snicker
-            snackiest films, where narratives marshmallow and gummy bear
-            performances.
+            {text}
           </p>
         </div>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
+          src={imageUrl}
           className="object-cover w-full h-full "
         />
       </div>
 
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`} >
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
+          src={image2Url}
           className="object-cover w-full h-full"
         />
       </div>
@@ -182,18 +190,22 @@ const ImageTextBlock = ({ data }) => {
   );
 };
 
-const TextBlock = () => {
+const TextBlock = ({ data }) => {
+  if(!data.fields)
+    return null
+
+  const title = data.fields.title
+  const text = data.fields.text1
+
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 mx-auto">
+    <div className="flex flex-col md:flex-col  bg-black text-white gap-6 py-8 mx-auto">
       <div className={`w-full md:w-1/2 flex flex-col `}>
         <div >
-          <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
-            Paragraph
-          </h2>
+          <p className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
+            {title}
+          </p>
           <p className="text-lg md:text-[32px] leading-10">
-            This award celebrates the snicker
-            snackiest films, where narratives marshmallow and gummy bear
-            performances take center stage.
+            {text}
           </p>
         </div>
       </div>
@@ -202,18 +214,25 @@ const TextBlock = () => {
 };
 
 
-const TwoImagesBlock = () => {
+const TwoImagesBlock = ({ data }) => {
+    if(!data.fields)
+    return null
+  console.log(data)
+
+  const imageUrl = data.fields.picture.url
+  const image2Url = data.fields.picture2.url
+
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[100vh] mx-auto">
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
+          src={imageUrl}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
+          src={image2Url}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
@@ -222,11 +241,16 @@ const TwoImagesBlock = () => {
   );
 };
 
-const OneImageBlock = () => {
+const OneImageBlock = ({ data }) => {
+    if(!data.fields)
+    return null
+  console.log(data)
+
+  const imageUrl = data.fields.picture.url
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
+          src={imageUrl}
           className="object-cover w-full h-full "
         />
 
@@ -310,7 +334,9 @@ export default async function ProjectPage({ params }) {
       {/*   <p>PRODUCER ASSISTANT: MADINA TORGAYEVA</p> */}
       {/*   <p>UPM: DMITRIY KASTORSKIY</p> */}
       {/* </div> */}
-      {blocks.map(block => renderBlock(block))}
+      <div className="flex flex-col gap-16">
+        {blocks.map(block => renderBlock(block))}
+      </div>
       {/* <ImageTextBlock variant="variant4"/> */}
       {/* <ImageTextBlock2 variant="variant1"/> */}
       {/* <ImageTextBlock3 variant="variant4"/> */}
