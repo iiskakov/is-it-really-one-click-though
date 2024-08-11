@@ -38,6 +38,7 @@ export default buildConfig({
     s3Storage({
       collections: {
         ['media']: true,
+        ['projects']: true,
       },
       bucket: process.env.S3_BUCKET_NAME || '',
       config: {
