@@ -1,9 +1,8 @@
-import type { Block, Field } from 'payload/types'
-// TODO install payload types with yarn 
+import { Block, Field } from 'payload'
 
 
 
-export const ImageTextBlock2: Block = {
+export const ImageTextBlock2:Block = {
   slug: 'ImageText2',
   fields: [
       {

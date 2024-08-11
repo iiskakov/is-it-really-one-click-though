@@ -1,5 +1,4 @@
-import type { Block, Field } from 'payload/types'
-// TODO install payload types with yarn 
+import { Block, Field } from 'payload'
 
 
 
