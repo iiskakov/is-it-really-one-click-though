@@ -36,17 +36,15 @@ const allProjects = [
 ];
 
 
+
 const ImageTextBlock3 = ({ data }) => {
-  if(!data.fields)
-    return null
+  if (!data.fields) return null;
 
-  const variant = data.fields.variant
-  const imageUrl = data.fields.picture.url
-  const image2Url = data.fields.picture2.url
-  const title = data.fields.title
-  const text = data.fields.text1
-
-
+  const variant = data.fields.variant;
+  const image = data.fields.picture;
+  const image2 = data.fields.picture2;
+  const title = data.fields.title;
+  const text = data.fields.text1;
 
   const imgPositionClasses = {
     "variant1": "order-2 md:order-2", // Image on the left
@@ -64,7 +62,7 @@ const ImageTextBlock3 = ({ data }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 w-full h-[95vh] mx-auto">
-      <div className={`w-2/6 h-full flex gap-4  ${textPositionClasses[variant]}`}>
+      <div className={`w-2/6 h-full flex gap-4 ${textPositionClasses[variant]}`}>
         <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
@@ -73,35 +71,35 @@ const ImageTextBlock3 = ({ data }) => {
             {text}
           </p>
         </div>
-        <img
-          src={yandexCloudImage(imageUrl)}
-          className="object-cover w-full h-full "
-        />
-      </div>
-
-      <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`} >
-        <img
-          src={yandexCloudImage(image2Url)}
+        <Image
+          src={yandexCloudImage(image.url)}
+          width={image.width}
+          height={image.height}
           className="object-cover w-full h-full"
         />
       </div>
 
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`}>
+        <Image
+          src={yandexCloudImage(image2.url)}
+          width={image2.width}
+          height={image2.height}
+          className="object-cover w-full h-full"
+        />
+      </div>
     </div>
   );
 };
 
-
 const ImageTextBlock2 = ({ data }) => {
-  if(!data.fields)
-    return null
+  if (!data.fields) return null;
 
-  const variant = data.fields.variant
-  const imageUrl = data.fields.picture.url
-  const image2Url = data.fields.picture2.url
-  const title = data.fields.title
-  const text = data.fields.text1
+  const variant = data.fields.variant;
+  const image = data.fields.picture;
+  const image2 = data.fields.picture2;
+  const title = data.fields.title;
+  const text = data.fields.text1;
 
-  // Define dynamic classes based on the variant
   const imgPositionClasses = {
     "variant1": "order-1 md:order-1", // Image on the left
     "variant2": "order-1 md:order-1", // Image on the left
@@ -114,14 +112,16 @@ const ImageTextBlock2 = ({ data }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[95vh] mx-auto">
-      <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-2/5 h-full ${imgPositionClasses[variant]}`} >
-        <img
-          src={yandexCloudImage(imageUrl)}
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-2/5 h-full ${imgPositionClasses[variant]}`}>
+        <Image
+          src={yandexCloudImage(image.url)}
+          width={image.width}
+          height={image.height}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
 
-      <div className={`w-3/5 h-full flex gap-4  ${textPositionClasses[variant]}`}>
+      <div className={`w-3/5 h-full flex gap-4 ${textPositionClasses[variant]}`}>
         <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
@@ -130,26 +130,24 @@ const ImageTextBlock2 = ({ data }) => {
             {text}
           </p>
         </div>
-        <img
-          src={yandexCloudImage(image2Url)}
-          className="object-cover w-auto h-full "
+        <Image
+          src={yandexCloudImage(image2.url)}
+          width={image2.width}
+          height={image2.height}
+          className="object-cover w-auto h-full"
         />
       </div>
     </div>
   );
 };
 
-
 const ImageTextBlock = ({ data }) => {
-  // Define dynamic classes based on the variant
-  if(!data.fields)
-    return null
-  console.log('in imagetextblock', data)
+  if (!data.fields) return null;
 
-  const variant = data.fields.variant
-  const imageUrl = data.fields.picture.url
-  const title = data.fields.title
-  const text = data.fields.text1
+  const variant = data.fields.variant;
+  const image = data.fields.picture;
+  const title = data.fields.title;
+  const text = data.fields.text1;
 
   const imgPositionClasses = {
     "variant1": "order-1 md:order-1", // Image on the left
@@ -170,14 +168,16 @@ const ImageTextBlock = ({ data }) => {
       <div
         className={`w-full md:w-3/5 flex justify-center md:justify-start mb-8 md:mb-0 aspect-video ${imgPositionClasses[variant]}`}
       >
-        <img
-          src={yandexCloudImage(imageUrl)}
+        <Image
+          src={yandexCloudImage(image.url)}
+          width={image.width}
+          height={image.height}
           className="object-cover w-full h-full"
         />
       </div>
 
       <div className={`w-full md:w-2/5 flex flex-col ${textPositionClasses[variant]}`}>
-        <div >
+        <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </h2>
@@ -191,16 +191,15 @@ const ImageTextBlock = ({ data }) => {
 };
 
 const TextBlock = ({ data }) => {
-  if(!data.fields)
-    return null
+  if (!data.fields) return null;
 
-  const title = data.fields.title
-  const text = data.fields.text1
+  const title = data.fields.title;
+  const text = data.fields.text1;
 
   return (
-    <div className="flex flex-col md:flex-col  bg-black text-white gap-6 py-8 mx-auto">
-      <div className={`w-full md:w-1/2 flex flex-col `}>
-        <div >
+    <div className="flex flex-col md:flex-col bg-black text-white gap-6 py-8 mx-auto">
+      <div className={`w-full md:w-1/2 flex flex-col`}>
+        <div>
           <p className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </p>
@@ -213,48 +212,47 @@ const TextBlock = ({ data }) => {
   );
 };
 
-
 const TwoImagesBlock = ({ data }) => {
-    if(!data.fields)
-    return null
-  console.log(data)
+  if (!data.fields) return null;
 
-  const imageUrl = data.fields.picture.url
-  const image2Url = data.fields.picture2.url
+  const image = data.fields.picture;
+  const image2 = data.fields.picture2;
 
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[100vh] mx-auto">
-      <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
-        <img
-          src={yandexCloudImage(imageUrl)}
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`}>
+        <Image
+          src={yandexCloudImage(image.url)}
+          width={image.width}
+          height={image.height}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
-      <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
-        <img
-          src={yandexCloudImage(image2Url)}
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`}>
+        <Image
+          src={yandexCloudImage(image2.url)}
+          width={image2.width}
+          height={image2.height}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
-
     </div>
   );
 };
 
 const OneImageBlock = ({ data }) => {
-  if(!data.fields)
-    return null
+  if (!data.fields) return null;
 
-  const image = data.fields.picture
+  const image = data.fields.picture;
+
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
-        <Image
-          src={yandexCloudImage(image.url)}
-          width={image.width}
-          height={image.height}
-          className="object-cover w-full h-full "
-        />
-
+      <Image
+        src={yandexCloudImage(image.url)}
+        width={image.width}
+        height={image.height}
+        className="object-cover w-full h-full"
+      />
     </div>
   );
 };
