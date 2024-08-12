@@ -315,9 +315,7 @@ export default async function ProjectPage({ params }) {
   })
   const blocks = result.content.root.children;
 
-  if (!project) {
-    return <p>Project not found</p>;
-  }
+  console.log(project)
 
   return (
     <div className={`p-6 bg-black text-white ${lato.className}`}>
