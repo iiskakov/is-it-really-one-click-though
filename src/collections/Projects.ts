@@ -18,6 +18,9 @@ export const Projects: CollectionConfig = {
   access: {
     read: () => true,
   },
+  upload: {
+    disableLocalStorage: true,
+  },
   fields: [
     {
       name: 'name',

@@ -74,14 +74,14 @@ const ImageTextBlock3 = ({ data }) => {
           </p>
         </div>
         <img
-          src={imageUrl}
+          src={yandexCloudImage(imageUrl)}
           className="object-cover w-full h-full "
         />
       </div>
 
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`} >
         <img
-          src={image2Url}
+          src={yandexCloudImage(image2Url)}
           className="object-cover w-full h-full"
         />
       </div>
@@ -116,7 +116,7 @@ const ImageTextBlock2 = ({ data }) => {
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[95vh] mx-auto">
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-2/5 h-full ${imgPositionClasses[variant]}`} >
         <img
-          src={imageUrl}
+          src={yandexCloudImage(imageUrl)}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
@@ -131,7 +131,7 @@ const ImageTextBlock2 = ({ data }) => {
           </p>
         </div>
         <img
-          src={image2Url}
+          src={yandexCloudImage(image2Url)}
           className="object-cover w-auto h-full "
         />
       </div>
@@ -171,7 +171,7 @@ const ImageTextBlock = ({ data }) => {
         className={`w-full md:w-3/5 flex justify-center md:justify-start mb-8 md:mb-0 aspect-video ${imgPositionClasses[variant]}`}
       >
         <img
-          src={imageUrl}
+          src={yandexCloudImage(imageUrl)}
           className="object-cover w-full h-full"
         />
       </div>
@@ -226,13 +226,13 @@ const TwoImagesBlock = ({ data }) => {
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[100vh] mx-auto">
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
         <img
-          src={imageUrl}
+          src={yandexCloudImage(imageUrl)}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
       <div className={` flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`} >
         <img
-          src={image2Url}
+          src={yandexCloudImage(image2Url)}
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
@@ -242,15 +242,14 @@ const TwoImagesBlock = ({ data }) => {
 };
 
 const OneImageBlock = ({ data }) => {
-    if(!data.fields)
+  if(!data.fields)
     return null
-  console.log(data)
 
   const imageUrl = data.fields.picture.url
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
         <img
-          src={imageUrl}
+          src={yandexCloudImage(imageUrl)}
           className="object-cover w-full h-full "
         />
 
@@ -295,6 +294,11 @@ const renderBlock = (data) => {
     default:
       return null; // or some fallback UI
   }
+};
+
+const yandexCloudImage = (imageUrl) => {
+  const filename = imageUrl.split('/').pop();
+  return `${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${filename}`;
 };
 
 
