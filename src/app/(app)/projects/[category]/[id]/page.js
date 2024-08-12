@@ -76,7 +76,7 @@ const ImageTextBlock3 = ({ data }) => {
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
-            className="object-cover"
+            className="object-cover select-none"
           />
         </div>
       </div>
@@ -86,7 +86,7 @@ const ImageTextBlock3 = ({ data }) => {
           <Image
             src={yandexCloudImage(image2.url)}
             fill={true}
-            className="object-cover"
+            className="object-cover select-none"
           />
         </div>
       </div>
@@ -120,7 +120,7 @@ const ImageTextBlock2 = ({ data }) => {
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
-            className="object-cover"
+            className="object-cover select-none"
           />
         </div>
       </div>
@@ -138,7 +138,7 @@ const ImageTextBlock2 = ({ data }) => {
           <Image
             src={yandexCloudImage(image2.url)}
             fill={true}
-            className="object-cover"
+            className="object-cover select-none"
           />
         </div>
       </div>
@@ -177,7 +177,7 @@ const ImageTextBlock = ({ data }) => {
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
-            className="object-cover"
+            className="object-cover select-none"
           />
         </div>
       </div>
@@ -257,7 +257,7 @@ const OneImageBlock = ({ data }) => {
         <Image
           src={yandexCloudImage(image.url)}
           fill={true}
-          className="object-cover"
+          className="object-cover select-none"
         />
       </div>
     </div>
