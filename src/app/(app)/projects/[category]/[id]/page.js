@@ -169,7 +169,7 @@ const ImageTextBlock = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 mx-auto">
+    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 w-full mx-auto">
       <div
         className={`w-full md:w-3/5 flex justify-center md:justify-start mb-8 md:mb-0 aspect-video ${imgPositionClasses[variant]}`}
       >
