@@ -245,11 +245,13 @@ const OneImageBlock = ({ data }) => {
   if(!data.fields)
     return null
 
-  const imageUrl = data.fields.picture.url
+  const image = data.fields.picture
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
-        <img
-          src={yandexCloudImage(imageUrl)}
+        <Image
+          src={yandexCloudImage(image.url)}
+          width={image.width}
+          height={image.height}
           className="object-cover w-full h-full "
         />
 
