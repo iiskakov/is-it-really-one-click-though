@@ -37,6 +37,7 @@ const allProjects = [
 
 
 
+
 const ImageTextBlock3 = ({ data }) => {
   if (!data.fields) return null;
 
@@ -71,21 +72,23 @@ const ImageTextBlock3 = ({ data }) => {
             {text}
           </p>
         </div>
-        <Image
-          src={yandexCloudImage(image.url)}
-          width={image.width}
-          height={image.height}
-          className="object-cover w-full h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={yandexCloudImage(image.url)}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`}>
-        <Image
-          src={yandexCloudImage(image2.url)}
-          width={image2.width}
-          height={image2.height}
-          className="object-cover w-full h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={yandexCloudImage(image2.url)}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </div>
     </div>
   );
@@ -113,12 +116,13 @@ const ImageTextBlock2 = ({ data }) => {
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[95vh] mx-auto">
       <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-2/5 h-full ${imgPositionClasses[variant]}`}>
-        <Image
-          src={yandexCloudImage(image.url)}
-          width={image.width}
-          height={image.height}
-          className="object-cover w-auto h-full max-h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={yandexCloudImage(image.url)}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className={`w-3/5 h-full flex gap-4 ${textPositionClasses[variant]}`}>
@@ -130,12 +134,13 @@ const ImageTextBlock2 = ({ data }) => {
             {text}
           </p>
         </div>
-        <Image
-          src={yandexCloudImage(image2.url)}
-          width={image2.width}
-          height={image2.height}
-          className="object-cover w-auto h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={yandexCloudImage(image2.url)}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </div>
     </div>
   );
@@ -168,12 +173,13 @@ const ImageTextBlock = ({ data }) => {
       <div
         className={`w-full md:w-3/5 flex justify-center md:justify-start mb-8 md:mb-0 aspect-video ${imgPositionClasses[variant]}`}
       >
-        <Image
-          src={yandexCloudImage(image.url)}
-          width={image.width}
-          height={image.height}
-          className="object-cover w-full h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={yandexCloudImage(image.url)}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className={`w-full md:w-2/5 flex flex-col ${textPositionClasses[variant]}`}>
@@ -247,15 +253,17 @@ const OneImageBlock = ({ data }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
-      <Image
-        src={yandexCloudImage(image.url)}
-        width={image.width}
-        height={image.height}
-        className="object-cover w-full h-full"
-      />
+      <div className="relative w-full h-full">
+        <Image
+          src={yandexCloudImage(image.url)}
+          fill={true}
+          className="object-cover"
+        />
+      </div>
     </div>
   );
 };
+
 
 
 const AwardComponent7 = ({video}) => {
