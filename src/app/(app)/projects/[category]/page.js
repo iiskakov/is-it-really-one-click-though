@@ -48,11 +48,11 @@ const ProjectCard = ({ project }) => {
         height={380}
         className="object-cover w-full h-full transform transition-transform duration-200 group-hover:scale-105 aspect-video"
       />
-      <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 px-4">
-        <h2 className={`text-xl md:text-2xl font-bold text-white text-start ${anton.className}`}>
+      <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 md:mt-4 md:mb-16">
+        <h2 className={`text-xl md:text-[40px] font-bold text-white text-start ${lato.className}`}>
           {project.name}
         </h2>
-        <p className={`text-sm text-gray-300 text-start mb-2 ${lato.className}`}>
+        <p className={`text-sm text-white opacity-50 text-start mb-2 md:mt-8 md:text-[16px] ${lato.className}`}>
           {project.category?.title}
         </p>
       </div>
