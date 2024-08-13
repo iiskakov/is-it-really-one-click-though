@@ -12,11 +12,11 @@ export const ImageTextBlock2:Block = {
         options: [
       {
         value: 'variant1',
-        label: 'Text at the left side',
+        label: 'Text at the top',
       },
       {
         value: 'variant2',
-        label: 'Text at the right side',
+        label: 'Text at the bottom',
       },
       ],
     },

@@ -48,31 +48,31 @@ const ImageTextBlock3 = ({ data }) => {
   const text = data.fields.text1;
 
   const imgPositionClasses = {
-    "variant1": "order-2 md:order-2", // Image on the left
-    "variant2": "order-2 md:order-2", // Image on the left
+    "variant1": "order-1 md:order-2", // Image on the left
+    "variant2": "order-1 md:order-2", // Image on the left
     "variant3": "order-1 md:order-1", // Image on the left
     "variant4": "order-1 md:order-1", // Image on the left
   };
 
   const textPositionClasses = {
-    "variant1": "order-1 md:order-1 flex-col", // Text on the right, aligned at the top
-    "variant2": "order-1 md:order-1 flex-col-reverse", // Text on the right, centered
+    "variant1": "order-2 md:order-1 flex-col", // Text on the right, aligned at the top
+    "variant2": "order-2 md:order-1 flex-col-reverse", // Text on the right, centered
     "variant3": "order-2 md:order-2 flex-col", // Text on the right, centered
     "variant4": "order-2 md:order-2 flex-col-reverse", // Text on the right, centered
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 w-full h-[95vh] mx-auto">
-      <div className={`w-2/6 h-full flex gap-4 ${textPositionClasses[variant]}`}>
+    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 md:py-8 w-full md:h-[95vh] mx-auto">
+      <div className={`md:w-2/6 w-full h-auto md:h-full flex gap-4 ${textPositionClasses[variant]}`}>
         <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </h2>
-          <p className="text-lg md:text-[32px] leading-10">
+          <p className="text-lg md:text-[32px] md:leading-10">
             {text}
           </p>
         </div>
-        <div className="relative w-full h-full">
+        <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
@@ -81,8 +81,8 @@ const ImageTextBlock3 = ({ data }) => {
         </div>
       </div>
 
-      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-4/6 h-full ${imgPositionClasses[variant]}`}>
-        <div className="relative w-full h-full">
+      <div className={`flex justify-center md:justify-start  md:mb-0 md:w-4/6 md:h-full w-full h-auto ${imgPositionClasses[variant]}`}>
+        <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image2.url)}
             fill={true}
@@ -104,8 +104,8 @@ const ImageTextBlock2 = ({ data }) => {
   const text = data.fields.text1;
 
   const imgPositionClasses = {
-    "variant1": "order-1 md:order-1", // Image on the left
-    "variant2": "order-1 md:order-1", // Image on the left
+    "variant1": "order-2 md:order-1", // Image on the left
+    "variant2": "order-2 md:order-1", // Image on the left
   };
 
   const textPositionClasses = {
@@ -114,9 +114,9 @@ const ImageTextBlock2 = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[95vh] w-full mx-auto">
-      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-2/5 h-full ${imgPositionClasses[variant]}`}>
-        <div className="relative w-full h-full">
+    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 md:py-8 h-auto md:h-[95vh] w-full mx-auto">
+      <div className={`flex justify-center md:justify-start md:mb-0 md:w-2/5 md:h-full w-full ${imgPositionClasses[variant]}`}>
+        <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
@@ -125,16 +125,16 @@ const ImageTextBlock2 = ({ data }) => {
         </div>
       </div>
 
-      <div className={`w-3/5 h-full flex gap-4 ${textPositionClasses[variant]}`}>
+      <div className={`md:w-3/5 w-full md:h-full h-auto flex gap-4 ${textPositionClasses[variant]}`}>
         <div>
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </h2>
-          <p className="text-lg md:text-[32px] leading-10">
+          <p className="text-lg md:text-[32px] md:leading-10">
             {text}
           </p>
         </div>
-        <div className="relative w-full h-full">
+        <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image2.url)}
             fill={true}
@@ -169,7 +169,7 @@ const ImageTextBlock = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 w-full mx-auto">
+    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 md:py-8 w-full mx-auto">
       <div
         className={`w-full md:w-3/5 flex justify-center md:justify-start mb-8 md:mb-0 aspect-video ${imgPositionClasses[variant]}`}
       >
@@ -187,7 +187,7 @@ const ImageTextBlock = ({ data }) => {
           <h2 className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </h2>
-          <p className="text-lg md:text-[32px] leading-10">
+          <p className="text-lg md:text-[32px] md:leading-10">
             {text}
           </p>
         </div>
@@ -209,7 +209,7 @@ const TextBlock = ({ data }) => {
           <p className="text-[14px] md:text-[14px] mb-4 leading-tight opacity-50">
             {title}
           </p>
-          <p className="text-lg md:text-[32px] leading-10">
+          <p className="text-lg md:text-[32px] md:leading-10">
             {text}
           </p>
         </div>
@@ -225,8 +225,8 @@ const TwoImagesBlock = ({ data }) => {
   const image2 = data.fields.picture2;
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 py-8 h-[100vh] mx-auto">
-      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`}>
+    <div className="flex flex-row items-start bg-black text-white gap-6 md:py-8 md:h-[100vh] h-[25vh] md:mx-auto">
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 md:w-1/2 h-full w-full`}>
         <Image
           src={yandexCloudImage(image.url)}
           width={image.width}
@@ -234,7 +234,7 @@ const TwoImagesBlock = ({ data }) => {
           className="object-cover w-auto h-full max-h-full"
         />
       </div>
-      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 w-1/2 h-full`}>
+      <div className={`flex justify-center md:justify-start mb-8 md:mb-0 md:w-1/2 h-full w-full`}>
         <Image
           src={yandexCloudImage(image2.url)}
           width={image2.width}
@@ -252,8 +252,8 @@ const OneImageBlock = ({ data }) => {
   const image = data.fields.picture;
 
   return (
-    <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
-      <div className="relative w-full h-full">
+    <div className="flex flex-col md:flex-row items-start bg-black mb-8 text-white gap-6 w-full md:h-[100vh] mx-auto">
+      <div className="relative w-full h-auto aspect-video">
         <Image
           src={yandexCloudImage(image.url)}
           fill={true}
