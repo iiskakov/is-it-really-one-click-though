@@ -87,7 +87,7 @@ export interface Project {
   id: number;
   name: string;
   type?: string | null;
-  category: number | Category;
+  category?: (number | null) | Category;
   content?: {
     root: {
       type: string;

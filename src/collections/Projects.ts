@@ -33,7 +33,6 @@ export const Projects: CollectionConfig = {
       name: 'category',
       type: 'relationship',
       relationTo: 'categories',
-      required: true,
     },
     {
       name: 'content',

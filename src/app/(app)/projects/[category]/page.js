@@ -46,7 +46,7 @@ const ProjectCard = ({ project }) => {
         alt={project.title}
         width={633}
         height={380}
-        className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110 aspect-video"
+        className="object-cover w-full h-full transform transition-transform duration-200 group-hover:scale-105 aspect-video"
       />
       <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 px-4">
         <h2 className={`text-xl md:text-2xl font-bold text-white text-start ${anton.className}`}>
