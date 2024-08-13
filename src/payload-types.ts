@@ -86,7 +86,8 @@ export interface Media {
 export interface Project {
   id: number;
   name: string;
-  category?: (number | null) | Category;
+  type?: string | null;
+  category: number | Category;
   content?: {
     root: {
       type: string;

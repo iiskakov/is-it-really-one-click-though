@@ -37,9 +37,10 @@ const allProjects = [
 
 
 
-const ProjectCard = ({project}) => {
+
+const ProjectCard = ({ project }) => {
   return (
-    <Link href={`/projects/${project.category?.title}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
+    <Link href={`/projects/${project.category?.title}/${project.id}`} className="relative overflow-hidden group cursor-pointer flex flex-col">
       <Image
         src={yandexCloudImage(project.url)}
         alt={project.title}
@@ -47,13 +48,37 @@ const ProjectCard = ({project}) => {
         height={380}
         className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110 aspect-video"
       />
-      <div className="absolute inset-0 flex flex-col md:items-center items-start justify-end md:justify-center bg-black bg-opacity-50">
-        <h2 className={`md:text-4xl text-3xl font-bold text-white text-start md:text-center px-4 ${anton.className}`}>{project.name}</h2>
-    <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${lato.className} uppercase`}> {project.name}</p>
+      <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 px-4">
+        <h2 className={`text-xl md:text-2xl font-bold text-white text-start ${anton.className}`}>
+          {project.name}
+        </h2>
+        <p className={`text-sm text-gray-300 text-start mb-2 ${lato.className}`}>
+          {project.category?.title}
+        </p>
       </div>
     </Link>
   );
 };
+
+
+
+// const ProjectCard = ({project}) => {
+//   return (
+//     <Link href={`/projects/${project.category?.title}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
+//       <Image
+//         src={yandexCloudImage(project.url)}
+//         alt={project.title}
+//         width={633}
+//         height={380}
+//         className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110 aspect-video"
+//       />
+//       <div className="absolute inset-0 flex flex-col md:items-center items-start justify-end md:justify-center bg-black bg-opacity-50">
+//         <h2 className={`md:text-4xl text-3xl font-bold text-white text-start md:text-center px-4 ${anton.className}`}>{project.name}</h2>
+//     <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${lato.className} uppercase`}> {project.name}</p>
+//       </div>
+//     </Link>
+//   );
+// };
 
 const ProjectCardSkeleton = () => {
   return (

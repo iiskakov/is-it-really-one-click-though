@@ -26,9 +26,14 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'type',
+      type: 'text',
+    },
+    {
       name: 'category',
       type: 'relationship',
       relationTo: 'categories',
+      required: true,
     },
     {
       name: 'content',
