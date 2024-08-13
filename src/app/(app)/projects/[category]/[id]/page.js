@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { anton, lato } from '@/app/fonts';
 import Link from 'next/link';
 import VideoPlayer from '@/components/Projects/VideoPlayer'
-import ReactPlayer from 'react-player'
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 
@@ -269,7 +268,7 @@ const OneImageBlock = ({ data }) => {
 const AwardComponent7 = ({video}) => {
   return (
       <div className="h-[100vh] w-autorelative overflow-hidden mb-8">
-    <VideoPlayer url="https://vimeo.com/91486451" />
+    <VideoPlayer url={video}/>
       </div>
     // <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
     //     <img
@@ -321,7 +320,6 @@ export default async function ProjectPage({ params }) {
   })
   const blocks = result.content.root.children;
 
-  console.log(project)
 
   return (
     <div className={`p-6 bg-black text-white ${lato.className}`}>
@@ -353,6 +351,7 @@ export default async function ProjectPage({ params }) {
       {/* <TextBlock/> */}
       {/* <TwoImagesBlock/> */}
       {/* <OneImageBlock/> */}
+      <AwardComponent7 video="https://vimeo.com/91486451"/>
     </div>
   );
 }
