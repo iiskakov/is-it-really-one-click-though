@@ -5,6 +5,8 @@ import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
+import { Suspense } from "react"
+
 
 const payload = await getPayloadHMR({ config });
 
@@ -32,9 +34,10 @@ const allProjects = [
 
 const categories = ["all", "production", "events", "communication"];
 
-const ProjectCard = ({ project }) => {
+
+const ProjectCard = ({ project, category }) => {
   return (
-    <Link href={`/projects/${project.id}`} className="relative overflow-hidden group cursor-pointer">
+    <Link href={`/projects/${category}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
       <Image
         src={project.image}
         alt={project.title}
@@ -50,15 +53,36 @@ const ProjectCard = ({ project }) => {
   );
 };
 
+const ProjectCardSkeleton = () => {
+  return (
+    <div className="relative overflow-hidden bg-gray-200 animate-pulse " style={{ opacity: Math.random() * 0.9 + 0.05 }}>
+      <div className="w-full h-[380px] bg-gray-300"></div>
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-center bg-black bg-opacity-50">
+        {/* <div className="w-3/4 h-8 md:h-10 bg-gray-400 mb-4 mx-4"></div> */}
+        <div className="w-1/2 h-4 bg-gray-500 mb-2 mx-4 md:hidden"></div>
+      </div>
+    </div>
+  );
+};
+
+const ProjectsSkeleton = () => {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+      {[...Array(4)].map((_, index) => (
+        <ProjectCardSkeleton key={index} />
+      ))}
+    </div>
+  );
+};
+
 const Filter = ({ categories, currentCategory }) => {
   return (
-    <div className={`flex space-x-2 md:mb-4 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
+    <div className={`flex space-x-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {categories.map((category) => (
         <Link key={category} href={`/projects/${category}`}>
           <div
             className={`uppercase px-4 py-2 ${
-              currentCategory === category ? 'bg-[#F03021] text-white underline' : 'bg-white bg-opacity-10'
-            }`}
+              currentCategory === category ? ' text-[#F03021] underline' : 'text-white'}`}
           >
             {category}
           </div>
@@ -80,21 +104,37 @@ const Projects = async ({ params }) => {
   const filteredProjects = currentCategory === "all" ? allProjects : allProjects.filter(project => project.category === currentCategory);
 
   return (
-    <>
-      <div className="h-[80px]">
-        <Logo />
-        <Nav />
-      </div>
-      <div className="md:p-16 p-4">
-        <Filter categories={categories} currentCategory={currentCategory} />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} category={category}/>
           ))}
         </div>
-      </div>
-    </>
   );
 };
 
-export default Projects;
+
+const ProjectsPage = ({ params }) => {
+  const { category } = params;
+  const currentCategory = category || 'all';
+  return(
+      <>
+      <div className="h-[120px] mb-20">
+        <Logo />
+        <Nav />
+      </div>
+      <h1 className={`text-[96px] font-bold  text-white px-8 ${lato.className} uppercase`}>
+        Our works
+      </h1>
+      <div className="md:px-8 p-4">
+        <Filter categories={categories} currentCategory={currentCategory} />
+        {/* TODO: Skeletons for projects */}
+        <Suspense fallback={<ProjectsSkeleton />}>
+          <Projects params={params}/>
+        </Suspense>
+      </div>
+    </>
+
+  )
+}
+
+export default ProjectsPage;

@@ -14,13 +14,13 @@ const Nav = () => {
 
 
       {/* desktop */}
-    <div className={`${lato.className} hidden md:flex font-medium  gap-14  absolute right-[25vw] z-20 text-[16px] uppercase mt-4`}>
+    <div className={`${lato.className} hidden md:flex font-medium  gap-14  absolute right-8 z-20 text-[16px] uppercase mt-8`}>
       {/* IMPORTANT TODO */}
       {/* if will use external page here (such as for all projects - use nextjs link. as it will prerender the page) */}
-        <a className="hover:border-b-[1px] hover:border-white" href="/">Home</a>
-        <a className="hover:border-b-[1px] hover:border-white" href="/projects">Works</a>
+        <Link className="hover:border-b-[1px] hover:border-white" href="/">Home</Link>
+        <Link className="hover:border-b-[1px] hover:border-white" href="/projects/all" prefetch={true}>Works</Link>
         <a className="hover:border-b-[1px] hover:border-white" href="#about">About</a>
-        <a className="hover:border-b-[1px] hover:border-white" href="#contact">Contact</a>
+        <a className="hover:border-b-[1px] hover:border-white" href="#contact">Contact us</a>
     </div>
     </>
   )

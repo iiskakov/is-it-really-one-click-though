@@ -27,7 +27,7 @@ const VideoSwitcher = ({ videos, activeVideo, setActiveVideo, data }) => {
   const colors = generateGradientColors('#F4A804', '#E93949', videos.length);
 
   return (
-    <div className="absolute bottom-[200px] md:bottom-8 left-5 md:left-16 z-20 font-sans text-sm">
+    <div className="absolute bottom-[200px] md:bottom-8 left-5 md:left-8 z-20 font-sans text-sm">
       <span className={`${lato.className} md:hidden text-base uppercase opacity-30 leading-10`}>selected works</span>
       {videos.map((video, index) => (
         <div

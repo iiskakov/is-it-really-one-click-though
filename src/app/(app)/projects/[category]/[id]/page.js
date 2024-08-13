@@ -5,6 +5,9 @@ import Link from 'next/link';
 import VideoPlayer from '@/components/Projects/VideoPlayer'
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
+import Nav from '@/components/Intro/Nav';
+import Logo from '@/components/Intro/Logo';
+
 
 const payload = await getPayloadHMR({ config });
 
@@ -81,23 +84,23 @@ const ImageTextBlock3 = ({ data }) => {
       </div>
 
       <div className={`flex justify-center md:justify-start  md:mb-0 md:w-4/6 md:h-full w-full h-auto ${imgPositionClasses[variant]}`}>
-        <div className="relative w-full md:h-full aspect-video md:aspect-auto">
-          <Image
-            src={yandexCloudImage(image2.url)}
-            fill={true}
-            className="object-cover select-none"
-          />
-        </div>
+      <div className="relative w-full md:h-full aspect-video md:aspect-auto">
+        <Image
+          src={yandexCloudImage(image2.url)}
+          fill={true}
+          className="object-cover select-none"
+        />
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 const ImageTextBlock2 = ({ data }) => {
-  if (!data.fields) return null;
+if (!data.fields) return null;
 
-  const variant = data.fields.variant;
-  const image = data.fields.picture;
+const variant = data.fields.variant;
+const image = data.fields.picture;
   const image2 = data.fields.picture2;
   const title = data.fields.title;
   const text = data.fields.text1;
@@ -269,7 +272,6 @@ const OneVideoBlock = ({ data }) => {
   if (!data.fields) return null;
 
   const video = data.fields.video;
-    console.log(video)
 
 
   return (
@@ -311,28 +313,23 @@ const yandexCloudImage = (imageUrl) => {
 
 
 export default async function ProjectPage({ params }) {
-  const { id } = params;
-  const project = allProjects.find((project) => project.id === parseInt(id));
-
-  const result = await payload.findByID({
-      collection: 'projects', // required
-      id: id.toString(), // required
-      depth: 5,
+  const project = await payload.findByID({
+      collection: 'projects',
+      id: params?.id?.toString(),
+      depth: 2,
   })
-  const blocks = result.content.root.children;
+  const blocks = project.content.root.children;
 
 
   return (
-    <div className={`p-6 bg-black text-white ${lato.className}`}>
-      <Link href="/projects" className="text-lg text-white mb-8 inline-block">
-        &lt; BACK
-      </Link>
-      {/* <div className="h-[70vh] w-autorelative overflow-hidden mb-8"> */}
-      {/*    <VideoPlayer url={project.video} /> */}
-      {/* </div> */}
-      {/* <h1 className={`text-4xl font-bold text-white mb-2 ${anton.className}`}> */}
-      {/*   {project.title} */}
-      {/* </h1> */}
+    <div className={`p-8 bg-black text-white ${lato.className}`}>
+        <div className="h-[120px] mb-16">
+        <Logo />
+        <Nav />
+      </div>
+      <h1 className={`text-[96px] font-bold text-white mb-2 ${lato.className}`}>
+        {project.name}
+      </h1>
       {/* <h2 className="text-lg text-red-600 mb-4 uppercase">{project.category}</h2> */}
       {/* <div className="text-sm text-white space-y-1 uppercase"> */}
       {/*   <p>DIRECTED BY: ZHANDOS QAHAR</p> */}
