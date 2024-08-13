@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
+import  Categories  from './collections/Categories'
 
 import { s3Storage } from '@payloadcms/storage-s3'
 
@@ -21,7 +22,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Projects],
+  collections: [Users, Media, Projects, Categories],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

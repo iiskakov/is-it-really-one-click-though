@@ -21,7 +21,7 @@ export default async function Home() {
       {/* <About /> */}
       {/* <VHS /> */}
       {/* <Polaroid /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

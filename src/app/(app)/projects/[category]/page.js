@@ -32,22 +32,22 @@ const allProjects = [
   // Add more dummy projects
 ];
 
-const categories = ["all", "production", "events", "communication"];
 
 
-const ProjectCard = ({ project, category }) => {
+
+const ProjectCard = ({project}) => {
   return (
-    <Link href={`/projects/${category}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
+    <Link href={`/projects/${project.category?.title}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
       <Image
-        src={project.image}
+        src={project.url}
         alt={project.title}
         width={633}
         height={380}
-        className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110"
+        className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110 aspect-video"
       />
       <div className="absolute inset-0 flex flex-col md:items-center items-start justify-end md:justify-center bg-black bg-opacity-50">
-        <h2 className={`md:text-4xl text-3xl font-bold text-white text-start md:text-center px-4 ${anton.className}`}>{project.title}</h2>
-        <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${lato.className} uppercase`}> {project.category}</p>
+        <h2 className={`md:text-4xl text-3xl font-bold text-white text-start md:text-center px-4 ${anton.className}`}>{project.name}</h2>
+    <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${lato.className} uppercase`}> {project.name}</p>
       </div>
     </Link>
   );
@@ -75,16 +75,20 @@ const ProjectsSkeleton = () => {
   );
 };
 
-const Filter = ({ categories, currentCategory }) => {
+const Filter = async ({ currentCategory }) => {
+  const categories = await payload.find({
+    collection: 'categories',
+  });
+
   return (
     <div className={`flex space-x-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
-      {categories.map((category) => (
-        <Link scroll={false} key={category} href={`/projects/${category}`}>
+      {categories?.docs?.map((category) => (
+        <Link scroll={false} key={category.title} href={`/projects/${category.title}`}>
           <div
             className={`uppercase px-4 py-2 ${
               currentCategory === category ? ' text-[#F03021] underline' : 'text-white'}`}
           >
-            {category}
+        {category.title}
           </div>
         </Link>
       ))}
@@ -94,23 +98,27 @@ const Filter = ({ categories, currentCategory }) => {
 
 const Projects = async ({ params }) => {
   const { category } = params;
-  const currentCategory = category || 'all';
+
+  const query = category === "all" ? {} : {
+    where: {
+      'category.title': { equals: category },
+    }
+  };
 
   const projects = await payload.find({
     collection: 'projects',
+    ...query,
   });
-  console.log(projects);
-
-  const filteredProjects = currentCategory === "all" ? allProjects : allProjects.filter(project => project.category === currentCategory);
 
   return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-          {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} category={category}/>
-          ))}
-        </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+      {projects?.docs?.map(project => (
+        <ProjectCard key={project.id} project={project} />
+      ))}
+    </div>
   );
 };
+
 
 
 const ProjectsPage = ({ params }) => {
@@ -126,7 +134,7 @@ const ProjectsPage = ({ params }) => {
         Our works
       </h1>
       <div className="md:px-8 p-4">
-        <Filter categories={categories} currentCategory={currentCategory} />
+        <Filter  currentCategory={currentCategory} />
         {/* TODO: Skeletons for projects */}
         <Suspense fallback={<ProjectsSkeleton />}>
           <Projects params={params}/>

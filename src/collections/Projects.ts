@@ -26,6 +26,11 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'category',
+      type: 'relationship',
+      relationTo: 'categories',
+    },
+    {
       name: 'content',
       type: 'richText',
       editor: lexicalEditor({

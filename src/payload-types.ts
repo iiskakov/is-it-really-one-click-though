@@ -14,6 +14,7 @@ export interface Config {
     users: User;
     media: Media;
     projects: Project;
+    categories: Category;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -85,6 +86,7 @@ export interface Media {
 export interface Project {
   id: number;
   name: string;
+  category?: (number | null) | Category;
   content?: {
     root: {
       type: string;
@@ -111,6 +113,16 @@ export interface Project {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  title?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
