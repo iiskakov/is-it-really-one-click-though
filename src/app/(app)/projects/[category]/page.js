@@ -6,6 +6,8 @@ import Logo from '@/components/Intro/Logo';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 import { Suspense } from "react"
+import { yandexCloudImage } from '@/utils/functions';
+
 
 
 const payload = await getPayloadHMR({ config });
@@ -39,7 +41,7 @@ const ProjectCard = ({project}) => {
   return (
     <Link href={`/projects/${project.category?.title}/${project.id}`} className="relative overflow-hidden group cursor-pointer">
       <Image
-        src={project.url}
+        src={yandexCloudImage(project.url)}
         alt={project.title}
         width={633}
         height={380}

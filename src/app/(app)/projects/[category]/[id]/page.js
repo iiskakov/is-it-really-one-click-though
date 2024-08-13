@@ -7,6 +7,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
+import { yandexCloudImage } from '@/utils/functions';
 
 
 const payload = await getPayloadHMR({ config });
@@ -306,10 +307,6 @@ const renderBlock = (data) => {
   }
 };
 
-const yandexCloudImage = (imageUrl) => {
-  const filename = imageUrl.split('/').pop();
-  return `${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${filename}`;
-};
 
 
 export default async function ProjectPage({ params }) {
