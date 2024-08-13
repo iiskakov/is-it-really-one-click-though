@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 
 const VideoPlayer = ({ url }) => {
   return (
-    <div className="h-[70vh] w-auto relative overflow-hidden mb-8">
+    <div className="h-[100vh] w-auto relative overflow-hidden mb-8">
       <ReactPlayer
         url={url}
         width="100%"

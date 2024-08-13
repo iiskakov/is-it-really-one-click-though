@@ -351,7 +351,7 @@ export default async function ProjectPage({ params }) {
       {/* <TextBlock/> */}
       {/* <TwoImagesBlock/> */}
       {/* <OneImageBlock/> */}
-      <AwardComponent7 video="https://vimeo.com/91486451"/>
+      <AwardComponent7 video="https://storage.yandexcloud.kz/qarabucket/alternativa.webm"/>
     </div>
   );
 }
