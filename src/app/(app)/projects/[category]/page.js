@@ -79,7 +79,7 @@ const Filter = ({ categories, currentCategory }) => {
   return (
     <div className={`flex space-x-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {categories.map((category) => (
-        <Link key={category} href={`/projects/${category}`}>
+        <Link scroll={false} key={category} href={`/projects/${category}`}>
           <div
             className={`uppercase px-4 py-2 ${
               currentCategory === category ? ' text-[#F03021] underline' : 'text-white'}`}
