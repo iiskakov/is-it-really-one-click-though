@@ -322,7 +322,7 @@ export default async function ProjectPage({ params }) {
 
 
   return (
-    <div className={`p-8 bg-black text-white ${lato.className}`}>
+    <div className={`px-8 bg-black text-white ${lato.className}`}>
         <div className="h-[120px] mb-16">
         <Logo />
         <Nav />
