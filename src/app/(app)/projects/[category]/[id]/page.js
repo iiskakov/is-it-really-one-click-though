@@ -265,18 +265,17 @@ const OneImageBlock = ({ data }) => {
 
 
 
-const AwardComponent7 = ({video}) => {
-  return (
-      <div className="h-[100vh] w-autorelative overflow-hidden mb-8">
-    <VideoPlayer url={video}/>
-      </div>
-    // <div className="flex flex-col md:flex-row items-start bg-black text-white gap-6 w-full h-[100vh] mx-auto">
-    //     <img
-    //       src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Satyam_first_building.JPG"
-    //       className="object-cover w-full h-full "
-    //     />
+const OneVideoBlock = ({ data }) => {
+  if (!data.fields) return null;
 
-    // </div>
+  const video = data.fields.video;
+    console.log(video)
+
+
+  return (
+    <div className="md:h-[100vh] w-autorelative overflow-hidden mb-8">
+        <VideoPlayer url={yandexCloudImage(video.url)}/>
+      </div>
   );
 };
 
@@ -298,6 +297,8 @@ const renderBlock = (data) => {
       return <TwoImagesBlock data={data} key={data.fields.id} />;
     case 'OneImage':
       return <OneImageBlock data={data} key={data.fields.id} />;
+    case 'OneVideo':
+      return <OneVideoBlock data={data} key={data.fields.id} />;
     default:
       return null; // or some fallback UI
   }
@@ -351,7 +352,6 @@ export default async function ProjectPage({ params }) {
       {/* <TextBlock/> */}
       {/* <TwoImagesBlock/> */}
       {/* <OneImageBlock/> */}
-      <AwardComponent7 video="https://storage.yandexcloud.kz/qarabucket/alternativa.webm"/>
     </div>
   );
 }
