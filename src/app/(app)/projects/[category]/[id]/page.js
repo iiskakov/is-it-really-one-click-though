@@ -7,6 +7,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
+import { Suspense } from "react"
 import { yandexCloudImage } from '@/utils/functions';
 
 
@@ -308,11 +309,42 @@ const renderBlock = (data) => {
 };
 
 
+const NextProject = async ({ id }) => {
+  try {
+    const nextProject = await payload.findByID({
+      collection: 'projects',
+      id: (id + 1).toString(),
+      depth: 2,
+    });
+
+    if (!nextProject) {
+      return null; // Render nothing if the next project doesn't exist
+    }
+
+    return (
+      <div className="flex flex-row md:h-[400px] items-center bg-black m-8 p-8 relative border-t border-b border-1 border-white/20">
+        <div className="flex flex-row justify-between w-full items-center uppercase">
+          <div className="text-left">
+            <h2 className="text-2xl md:text-[32px] opacity-20 mb-2">{nextProject.name}</h2>
+          </div>
+          <img src={yandexCloudImage(nextProject.url)} alt={nextProject.name} className="w-auto h-[320px] object-cover aspect-video " />
+          <Link className="flex flex-col text-center text-white no-underline" href={`/projects/${nextProject.category.title}/${nextProject.id}`}>
+            <div className="mt-4 text-lg md:text-[32px] text-white underline">Next Project</div>
+          </Link>
+        </div>
+      </div>
+    );
+  } catch (error) {
+    console.error('Failed to fetch the next project:', error);
+    return null;
+  }
+};
+
 
 export default async function ProjectPage({ params }) {
   const project = await payload.findByID({
       collection: 'projects',
-      id: params?.id?.toString(),
+    id: params?.id?.toString(),
       depth: 2,
   })
   const blocks = project.content.root.children;
@@ -340,6 +372,9 @@ export default async function ProjectPage({ params }) {
       <div className="flex flex-col gap-16">
         {blocks.map(block => renderBlock(block))}
       </div>
+      <Suspense fallback={<></>}>
+        <NextProject id={project.id}/>
+      </Suspense>
       {/* <ImageTextBlock variant="variant4"/> */}
       {/* <ImageTextBlock2 variant="variant1"/> */}
       {/* <ImageTextBlock3 variant="variant4"/> */}
