@@ -332,7 +332,7 @@ export default async function ProjectPage({ params }) {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] text-[48] font-bold text-white mb-2 ${lato.className}`}>
+      <h1 className={`md:text-[96px] text-[48px] font-bold text-white mb-2 ${lato.className}`}>
         {project.name}
       </h1>
       {/* <h2 className="text-lg text-red-600 mb-4 uppercase">{project.category}</h2> */}

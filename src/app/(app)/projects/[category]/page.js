@@ -157,7 +157,7 @@ const ProjectsPage = ({ params }) => {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`text-[96px] font-bold  text-white px-8 ${lato.className} uppercase`}>
+      <h1 className={`md:text-[96px] text-[48px] font-bold  text-white px-8 ${lato.className} uppercase`}>
         Our works
       </h1>
       <div className="md:px-8 p-4">
