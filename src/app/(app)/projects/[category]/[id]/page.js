@@ -15,30 +15,6 @@ const payload = await getPayloadHMR({ config });
 
 
 
-const allProjects = [
-  {
-    id: 1,
-    title: "ALTERNATIVA FILM PROJECT BY INDRIVE",
-    category: "production",
-    image: "/project1.png",
-    video: "https://vimeo.com/914864510" // Replace with your Vimeo video URL
-  },
-  {
-    id: 2,
-    title: "OPPO RENO11 SERIES",
-    category: "communication",
-    image: "/project2.png",
-    video: "https://www.youtube.com/watch?v=co4UH24h8YY"
-  },
-  {
-    id: 3,
-    title: "KONTRAK - LIEBE IST EIN DIEB",
-    category: "production",
-    image: "/project3.png",
-    video: "https://vimeo.com/914864510"
-  },
-];
-
 
 
 
@@ -356,7 +332,7 @@ export default async function ProjectPage({ params }) {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`text-[96px] font-bold text-white mb-2 ${lato.className}`}>
+      <h1 className={`md:text-[96px] text-[48] font-bold text-white mb-2 ${lato.className}`}>
         {project.name}
       </h1>
       {/* <h2 className="text-lg text-red-600 mb-4 uppercase">{project.category}</h2> */}
