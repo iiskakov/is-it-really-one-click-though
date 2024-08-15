@@ -12,6 +12,7 @@ import SeeMore from '@/components/Intro/SeeMore'
 import Spline from '@/components/Intro/Spline'
 import Videos from '@/components/Intro/Videos'
 import VideoSwitcher from '@/components/Intro/VideoSwitcher'
+import VHS from '@/components/VHS';
 
 
 
@@ -26,6 +27,7 @@ const Intro = (data) => {
       <Logo/>
       <Nav/>
       <Videos videos={data.data.data} activeVideo={activeVideo} />
+      <VHS />
       {/* <VideoSwitcher videos={data.data.data} activeVideo={activeVideo} setActiveVideo={setActiveVideo}/> */}
       {/* <Spline project_name={data.data.data[activeVideo - 1]?.project_name} director={data.data.data[activeVideo - 1]?.director} label={data.data.data[activeVideo - 1]?.label} /> */}
 

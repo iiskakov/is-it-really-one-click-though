@@ -84,12 +84,11 @@ const AccordionItem = ({
 
   return (
     <motion.div
-      initial={{ rotate: 15 }}
       animate={isInView && {rotate: 0}}
       transition={{ duration: 0.2, delay: 1 + (index * 0.1) }}
       whileHover={{ y: !isOpen ? -15 : 0 }}
       whileTap={{ scale: 0.95 }}
-      className="accordion-item h-[95vw] md:h-[95vh]"
+      className="accordion-item  h-[70vh] md:h-[70vh] "
       style={{ backgroundColor: color }}
     >
       <motion.div
@@ -142,55 +141,42 @@ const AccordionItem = ({
 };
 
 const App = () => {
-  const [isInView, setIsInView] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
 
-  useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => {
-        setOpenIndex(2);
-      }, 2000);
-
-      // Cleanup timer on component unmount
-      return () => clearTimeout(timer);
-    }
-  }, [isInView]);
-
+  const handleItemClick = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section className="h-screen">
-      <motion.div
-      whileInView={() => {
-        // when element in viewport , set IsInView true!
-        setIsInView(true);
-        return {};
+    <div
+      className="h-screen w-screen z-20 relative pointer-events-none"
+      style={{
+        backgroundColor: openIndex !== null ? 'black' : 'transparent',
+        transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
-        id="works"
-        className="my-[80px]  rotate-90 md:rotate-0 overflow-hidden"
     >
-    <motion.div
-      initial={{ x: '95vw' }}
-      whileInView={{ x: 0 }}
-      viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: 1 }} >
-      <div className="accordion-container">
-        {accordionData.map((item, index) => (
-          <AccordionItem
-            key={index}
-            {...item}
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            isOpen={openIndex === index}
-            index={index}
-            isInView={isInView}
-          />
-        ))}
-      </div>
-    </motion.div>
-    </motion.div>
-    </section>
+      <motion.div id="works" className=" rotate-90 md:rotate-0 absolute bottom-2 left-0 right-0">
+        <motion.div
+          initial={{ x: '70vw' }} // Start with most of the content off-screen
+          animate={openIndex !== null ? { x: 0 } : { x: '70vw' }} // Slide in if an item is open, slide out if no items are open
+          transition={{ duration: 0.5 }}
+        >
+          <div className="accordion-container">
+            {accordionData.map((item, index) => (
+              <AccordionItem
+                key={index}
+                {...item}
+                onClick={() => handleItemClick(index)}
+                isOpen={openIndex === index}
+                index={index}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };
-
 
 
 
