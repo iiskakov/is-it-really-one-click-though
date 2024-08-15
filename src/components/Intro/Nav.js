@@ -14,7 +14,7 @@ const Nav = () => {
 
 
       {/* desktop */}
-    <div className={`${lato.className} hidden md:flex font-medium  gap-14  absolute right-8 z-20 text-[16px] uppercase mt-8`}>
+    <div className={`${lato.className} hidden md:flex font-medium  gap-14  absolute right-8 z-[22] text-[16px] uppercase mt-8`}>
       {/* IMPORTANT TODO */}
       {/* if will use external page here (such as for all projects - use nextjs link. as it will prerender the page) */}
         <Link className="hover:border-b-[1px] hover:border-white" href="/">Home</Link>

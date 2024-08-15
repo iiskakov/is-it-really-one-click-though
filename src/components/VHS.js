@@ -149,9 +149,10 @@ const App = () => {
 
   return (
     <div
-      className="h-screen w-screen z-20 relative pointer-events-none"
+      className="h-screen w-screen z-10 relative "
       style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
+        zIndex: openIndex !== null? '30' : '20',
         transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
     >
