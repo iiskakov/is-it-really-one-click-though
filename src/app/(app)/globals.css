@@ -33,6 +33,11 @@ body {
   background: #F03021;
 }
 
+img {
+  pointer-events: none;
+}
+
+
 .accordion-container {
   display: flex;
   flex-direction: row;

@@ -6,7 +6,6 @@ import TeamSection from '@/components/TeamSection';
 
 
 
-
 const AboutPage = () => {
   return(
       <div className="h-screen overflow-x-hidden w-screen">

@@ -1,5 +1,9 @@
+'use client'
+
 import React from "react";
+import { useRef, useEffect, useState } from "react";
 import { lato } from '@/app/fonts';
+import { motion } from "framer-motion";
 
 
 const teamMembers = [
@@ -56,27 +60,73 @@ const TeamMemberCard = ({ member }) => {
 };
 
 const TeamSection = () => {
-  // Assuming the total width of each item (image + text portions) is 760px
+  const containerRef = useRef(null);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
   const firstRow = teamMembers.filter((_, index) => index % 2 === 0);
   const secondRow = teamMembers.filter((_, index) => index % 2 !== 0);
 
+  useEffect(() => {
+    const updateConstraints = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const rowContentWidth = containerRef.current.scrollWidth;
+
+        setDragConstraints({
+          left: -(rowContentWidth - containerWidth) - 100, // Extendable left constraint
+          right: 100, // Extendable right constraint
+        });
+      }
+    };
+
+    updateConstraints();
+    window.addEventListener("resize", updateConstraints);
+
+    return () => {
+      window.removeEventListener("resize", updateConstraints);
+    };
+  }, [firstRow.length]);
+
   return (
-    <div className="w-full py-32 bg-black">
-      <div className="flex flex-col space-y-32 px-16">
-        <div className="flex space-x-[400px]">
+    <div className="w-full py-32 bg-black overflow-hidden">
+      <div className="flex flex-col space-y-32 px-16" ref={containerRef}>
+        <motion.div
+          className="flex space-x-[400px] cursor-grab"
+          drag="x"
+          dragConstraints={dragConstraints}
+          dragElastic={0.2} // Gives a slight "rubber band" effect when reaching edges
+          dragTransition={{
+            power: 0.2, // Controls the "weight" of the drag
+            timeConstant: 200, // Affects the deceleration
+            modifyTarget: (target) => Math.round(target / 100) * 100, // Snaps to the nearest multiple of 100 (optional)
+          }}
+          whileTap={{ cursor: "grabbing" }}
+        >
           {firstRow.map((member, index) => (
             <TeamMemberCard key={index} member={member} />
           ))}
-        </div>
-        <div className="flex space-x-[400px] ml-[350px]">
+        </motion.div>
+        <motion.div
+          className="flex space-x-[400px] ml-[350px] cursor-grab"
+          drag="x"
+          dragConstraints={dragConstraints}
+          dragElastic={0.2}
+          dragTransition={{
+            power: 0.2,
+            timeConstant: 200,
+            modifyTarget: (target) => Math.round(target / 100) * 100,
+          }}
+          whileTap={{ cursor: "grabbing" }}
+        >
           {secondRow.map((member, index) => (
             <TeamMemberCard key={index} member={member} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 };
+
 
 
 export default TeamSection;
