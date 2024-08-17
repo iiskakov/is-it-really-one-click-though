@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { anton } from '@/app/fonts'
+import { anton, tthoves, lato } from '@/app/fonts'
 
 import logo from "@/public/logo.svg";
 import hq from "@/public/hq.svg";
@@ -85,10 +85,10 @@ const AccordionItem = ({
   return (
     <motion.div
       animate={isInView && {rotate: 0}}
-      transition={{ duration: 0.2, delay: 1 + (index * 0.1) }}
+      transition={{ duration: 0.2 }}
       whileHover={{ y: !isOpen ? -15 : 0 }}
       whileTap={{ scale: 0.95 }}
-      className="accordion-item  h-[70vh] md:h-[70vh] "
+      className="accordion-item  h-[83vh] md:h-[83vh] "
       style={{ backgroundColor: color }}
     >
       <motion.div
@@ -107,9 +107,9 @@ const AccordionItem = ({
               <Image src={redbull} alt="redbull logo" className="accordion-redbull" />
             ) : null}
           </div>
-          <motion.div className="accordion-year">{year}</motion.div>
+          <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
-        <motion.div className={`${anton.className} accordion-title fixed md:static bottom-10`}>{title}</motion.div>
+        <motion.div className={`${tthoves.className} accordion-title fixed md:static bottom-10`}>{title}</motion.div>
         <div className="accordion-footer">
           <Image src={logo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
           <Image src={hq} alt="HQ logo" className="accordion-hq hidden md:block" />
@@ -149,14 +149,14 @@ const App = () => {
 
   return (
     <div
-      className="h-screen w-screen z-10 relative "
+      className="h-screen w-screen z-10 relative"
       style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
         zIndex: openIndex !== null? '30' : '20',
         transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
     >
-      <motion.div id="works" className=" rotate-90 md:rotate-0 absolute bottom-2 left-0 right-0">
+      <motion.div id="works" className=" rotate-90 md:rotate-0 absolute bottom-4 left-0 right-0">
         <motion.div
           initial={{ x: '70vw' }} // Start with most of the content off-screen
           animate={openIndex !== null ? { x: 0 } : { x: '70vw' }} // Slide in if an item is open, slide out if no items are open

@@ -9,6 +9,7 @@ import { Suspense } from "react"
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 
+
 export default async function Home() {
   const res = await fetch('https://zanzam-fastapi-production.up.railway.app/qara_intro');
   const data = await res.json()

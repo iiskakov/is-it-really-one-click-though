@@ -10,7 +10,6 @@ import { yandexCloudImage } from '@/utils/functions';
 
 
 
-const payload = await getPayloadHMR({ config });
 
 const allProjects = [
   {
@@ -35,6 +34,7 @@ const allProjects = [
 ];
 
 
+  const payload = await getPayloadHMR({ config });
 
 
 
@@ -103,6 +103,7 @@ const ProjectsSkeleton = () => {
 };
 
 const Filter = async ({ currentCategory }) => {
+
   const categories = await payload.find({
     collection: 'categories',
   });
@@ -124,6 +125,7 @@ const Filter = async ({ currentCategory }) => {
 };
 
 const Projects = async ({ params }) => {
+
   const { category } = params;
 
   const query = category === "all" ? {} : {
@@ -157,7 +159,7 @@ const ProjectsPage = ({ params }) => {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] text-[48px] font-bold  text-white px-8 ${tthoves.className} uppercase`}>
+      <h1 className={`md:text-[96px] text-[48px] font-semibold  text-white px-8 ${tthoves.className} uppercase`}>
         Our works
       </h1>
       <div className="md:px-8 p-4">
