@@ -25,6 +25,14 @@ body {
   font-synthesis: none;
 }
 
+::-moz-selection { /* Code for Firefox */
+  background: #F03021;
+}
+
+::selection {
+  background: #F03021;
+}
+
 .accordion-container {
   display: flex;
   flex-direction: row;

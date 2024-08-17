@@ -16,9 +16,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Suspense fallback={<div>loading...</div>}>
         <Intro data={data}/>
-      </Suspense>
       {/* <About /> */}
       {/* <VHS /> */}
       {/* <Polaroid /> */}

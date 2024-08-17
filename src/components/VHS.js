@@ -10,6 +10,9 @@ import hyundai from "@/public/hyundai-logo.svg";
 import redbull from "@/public/redbull-logo.svg";
 import Image from 'next/image'
 
+import ReactPlayer from 'react-player';
+
+
 const accordionData = [
   {
     title: "HYUNDAI X \u00A0\u00A0\u00A0 \u00A0\u00A0\u00A0 ASTANA MOTORS",
@@ -125,14 +128,20 @@ const AccordionItem = ({
             exit={{ width: '0px' }}
             className="accordion-content"
           >
-            <video
-              src="https://samplelib.com/lib/preview/webm/sample-5s.webm"
-              autoPlay
-              loop
-              preload="auto"
-              muted
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
+            <div
+              className="w-full h-full relative"
+            >
+                  <ReactPlayer
+                        url="https://samplelib.com/lib/preview/webm/sample-5s.webm"
+                    width="100%"
+                  height="100%"
+                controls={false}
+                          loop
+                          muted={true}
+                    playing={true}
+      />
+
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
