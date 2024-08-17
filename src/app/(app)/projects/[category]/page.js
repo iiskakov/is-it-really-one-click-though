@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { anton, lato } from '@/app/fonts';
+import { anton, lato, tthoves } from '@/app/fonts';
 import Link from 'next/link';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
@@ -157,7 +157,7 @@ const ProjectsPage = ({ params }) => {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] text-[48px] font-bold  text-white px-8 ${lato.className} uppercase`}>
+      <h1 className={`md:text-[96px] text-[48px] font-bold  text-white px-8 ${tthoves.className} uppercase`}>
         Our works
       </h1>
       <div className="md:px-8 p-4">
