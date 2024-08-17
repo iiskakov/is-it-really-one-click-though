@@ -60,45 +60,52 @@ const TeamMemberCard = ({ member }) => {
 };
 
 const TeamSection = () => {
-  const containerRef = useRef(null);
-  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const firstRow = teamMembers.filter((_, index) => index % 2 === 0);
   const secondRow = teamMembers.filter((_, index) => index % 2 !== 0);
+  const combinedRows = [...firstRow, ...secondRow]; // For the mobile version
 
   useEffect(() => {
-    const updateConstraints = () => {
-      if (containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const rowContentWidth = containerRef.current.scrollWidth;
-
-        setDragConstraints({
-          left: -(rowContentWidth - containerWidth) - 100, // Extendable left constraint
-          right: 100, // Extendable right constraint
-        });
-      }
+    const updateScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768); // Assuming mobile view for screens <= 768px
     };
 
-    updateConstraints();
-    window.addEventListener("resize", updateConstraints);
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
 
     return () => {
-      window.removeEventListener("resize", updateConstraints);
+      window.removeEventListener("resize", updateScreenSize);
     };
-  }, [firstRow.length]);
+  }, []);
 
+  if (isMobile) {
+    return (
+      <div className="w-full py-16 bg-black">
+        <div className="flex flex-col space-y-20 px-4">
+          {combinedRows.map((member, index) => (
+            <div key={index} className="w-full">
+              <TeamMemberCard member={member} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop version
   return (
     <div className="w-full py-32 bg-black overflow-hidden">
-      <div className="flex flex-col space-y-32 px-16" ref={containerRef}>
+      <div className="flex flex-col space-y-32 px-16">
         <motion.div
           className="flex space-x-[400px] cursor-grab"
           drag="x"
-          dragConstraints={dragConstraints}
-          dragElastic={0.2} // Gives a slight "rubber band" effect when reaching edges
+          dragConstraints={{ left: -500, right: 100 }}
+          dragElastic={0.2}
           dragTransition={{
-            power: 0.2, // Controls the "weight" of the drag
-            timeConstant: 200, // Affects the deceleration
-            modifyTarget: (target) => Math.round(target / 100) * 100, // Snaps to the nearest multiple of 100 (optional)
+            power: 0.2,
+            timeConstant: 200,
+            modifyTarget: (target) => Math.round(target / 100) * 100,
           }}
           whileTap={{ cursor: "grabbing" }}
         >
@@ -109,7 +116,7 @@ const TeamSection = () => {
         <motion.div
           className="flex space-x-[400px] ml-[350px] cursor-grab"
           drag="x"
-          dragConstraints={dragConstraints}
+          dragConstraints={{ left: -500, right: 100 }}
           dragElastic={0.2}
           dragTransition={{
             power: 0.2,
@@ -126,6 +133,74 @@ const TeamSection = () => {
     </div>
   );
 };
+
+// const TeamSection = () => {
+//   const containerRef = useRef(null);
+//   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+//   const firstRow = teamMembers.filter((_, index) => index % 2 === 0);
+//   const secondRow = teamMembers.filter((_, index) => index % 2 !== 0);
+
+//   useEffect(() => {
+//     const updateConstraints = () => {
+//       if (containerRef.current) {
+//         const containerWidth = containerRef.current.offsetWidth;
+//         const rowContentWidth = containerRef.current.scrollWidth;
+
+//         setDragConstraints({
+//           left: -(rowContentWidth - containerWidth) - 100, // Extendable left constraint
+//           right: 100, // Extendable right constraint
+//         });
+//       }
+//     };
+
+//     updateConstraints();
+//     window.addEventListener("resize", updateConstraints);
+
+//     return () => {
+//       window.removeEventListener("resize", updateConstraints);
+//     };
+//   }, [firstRow.length]);
+
+//   return (
+//     <div className="w-full py-32 bg-black overflow-hidden">
+//       <div className="flex flex-col space-y-32 px-16" ref={containerRef}>
+//         <motion.div
+//           className="flex space-x-[400px] cursor-grab"
+//           drag="x"
+//           dragConstraints={dragConstraints}
+//           dragElastic={0.2} // Gives a slight "rubber band" effect when reaching edges
+//           dragTransition={{
+//             power: 0.2, // Controls the "weight" of the drag
+//             timeConstant: 200, // Affects the deceleration
+//             modifyTarget: (target) => Math.round(target / 100) * 100, // Snaps to the nearest multiple of 100 (optional)
+//           }}
+//           whileTap={{ cursor: "grabbing" }}
+//         >
+//           {firstRow.map((member, index) => (
+//             <TeamMemberCard key={index} member={member} />
+//           ))}
+//         </motion.div>
+//         <motion.div
+//           className="flex space-x-[400px] ml-[350px] cursor-grab"
+//           drag="x"
+//           dragConstraints={dragConstraints}
+//           dragElastic={0.2}
+//           dragTransition={{
+//             power: 0.2,
+//             timeConstant: 200,
+//             modifyTarget: (target) => Math.round(target / 100) * 100,
+//           }}
+//           whileTap={{ cursor: "grabbing" }}
+//         >
+//           {secondRow.map((member, index) => (
+//             <TeamMemberCard key={index} member={member} />
+//           ))}
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// };
 
 
 
