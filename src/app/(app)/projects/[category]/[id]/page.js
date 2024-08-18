@@ -55,6 +55,7 @@ const ImageTextBlock3 = ({ data }) => {
         <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image.url)}
+            quality={85}
             fill={true}
             className="object-cover select-none"
           />
@@ -65,6 +66,7 @@ const ImageTextBlock3 = ({ data }) => {
       <div className="relative w-full md:h-full aspect-video md:aspect-auto">
         <Image
           src={yandexCloudImage(image2.url)}
+          quality={85}
           fill={true}
           className="object-cover select-none"
         />
@@ -99,6 +101,7 @@ const image = data.fields.picture;
         <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image.url)}
+                        quality={85}
             fill={true}
             className="object-cover select-none"
           />
@@ -117,6 +120,8 @@ const image = data.fields.picture;
         <div className="relative w-full md:h-full aspect-video md:aspect-auto">
           <Image
             src={yandexCloudImage(image2.url)}
+                      quality={85}
+
             fill={true}
             className="object-cover select-none"
           />
@@ -157,6 +162,7 @@ const ImageTextBlock = ({ data }) => {
           <Image
             src={yandexCloudImage(image.url)}
             fill={true}
+                                    quality={85}
             className="object-cover select-none"
           />
         </div>
@@ -210,6 +216,7 @@ const TwoImagesBlock = ({ data }) => {
         <Image
           src={yandexCloudImage(image.url)}
           width={image.width}
+          quality={85}
           height={image.height}
           className="object-cover w-auto h-full max-h-full"
         />
@@ -217,6 +224,7 @@ const TwoImagesBlock = ({ data }) => {
       <div className={`flex justify-center md:justify-start mb-8 md:mb-0 md:w-1/2 h-full w-full`}>
         <Image
           src={yandexCloudImage(image2.url)}
+          quality={85}
           width={image2.width}
           height={image2.height}
           className="object-cover w-auto h-full max-h-full"
@@ -236,6 +244,8 @@ const OneImageBlock = ({ data }) => {
       <div className="relative w-full h-auto aspect-video">
         <Image
           src={yandexCloudImage(image.url)}
+                    quality={85}
+
           fill={true}
           className="object-cover select-none"
         />

@@ -45,6 +45,7 @@ const ProjectCard = ({ project }) => {
         src={yandexCloudImage(project.url)}
         alt={project.title}
         width={633}
+        quality={85}
         height={380}
         className="object-cover w-full h-full transform transition-transform duration-200 group-hover:scale-105 aspect-video"
       />
