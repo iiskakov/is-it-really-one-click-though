@@ -12,67 +12,8 @@ import Image from 'next/image'
 import { yandexCloudImage } from '@/utils/functions';
 
 
-const accordionData2 = [
-  {
-    title: "HYUNDAI X \u00A0\u00A0\u00A0 \u00A0\u00A0\u00A0 ASTANA MOTORS",
-    year: 2021,
-    color: "#7861fe",
-    directedBy: "AISULTAN",
-    client: "HYUNDAI",
-    category: "COMMERCIAL",
-  },
-  {
-    title:
-      "ALTERNATIVA \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 FILM PROJECT",
-    year: 2023,
-    color: "#63c278",
-    directedBy: "AISULTAN",
-    client: "OPPO",
-    category: "FILM",
-  },
-  {
-    title: "DIMASH X OPPO",
-    year: 2023,
-    color: "#ffde6d",
-    directedBy: "AISULTAN",
-    client: "OPPO",
-    category: "COMMERCIAL",
-  },
-  {
-    title: "REDBULL SOUNDCLASH",
-    year: 2023,
-    color: "#fe2c52",
-    directedBy: "AISULTAN",
-    client: "REDBULL",
-    category: "COMMERCIAL",
-  },
-  {
-    title: "AITPA SHOW",
-    year: 2022,
-    color: "#fd7a00",
-    directedBy: "AISULTAN",
-    client: "HYUNDAI",
-    category: "SHOW",
-  },
-  {
-    title: "VISIT ALMATY",
-    year: 2023,
-    color: "#fda4b5",
-    directedBy: "AISULTAN",
-    client: "OPPO",
-    category: "CAMPAIGN",
-  },
-  {
-    title: "BCC BUSINESS",
-    year: 2023,
-    color: "#9147AE",
-    directedBy: "AISULTAN",
-    client: "OPPO",
-    category: "CAMPAIGN",
-  },
-];
 
-const colors = ["#7861fe", "#63c278", "#ffde6d", "#fe2c52", "#fd7a00", "#fda4b5", "#9147AE"];
+const colors = ["#fe2c52", "#7861fe", "#63c278", "#ffde6d", "#fd7a00", "#fda4b5", "#9147AE"];
 
 
 const AccordionItem = ({
