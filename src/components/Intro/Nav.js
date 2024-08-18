@@ -55,8 +55,8 @@ const Nav = () => {
       <div className={`${lato.className} hidden md:flex font-medium gap-14 absolute right-8 z-[22] text-[15px] uppercase mt-8`}>
         <Link className={getLinkClasses('/')} href="/">Home</Link>
         <Link className={getLinkClasses('/projects/all')} href="/projects/all" prefetch={true}>Works</Link>
-        <a className={getLinkClasses('/about')} href="/about">About</a>
-        <a className={getLinkClasses('/contact')} href="/contact">Contact us</a>
+        <Link  className={getLinkClasses('/about')} href="/about">About</Link >
+        <Link  className={getLinkClasses('/contact')} href="/contact">Contact us</Link >
       </div>
     </>
   );
