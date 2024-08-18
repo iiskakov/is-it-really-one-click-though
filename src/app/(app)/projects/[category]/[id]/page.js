@@ -342,7 +342,7 @@ export default async function ProjectPage({ params }) {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] uppercase text-[48px] font-bold text-white mb-2 ${tthoves.className}`}>
+      <h1 className={`md:text-[96px] uppercase text-[48px] font-semibold text-white mb-2 ${tthoves.className}`}>
         {project.name}
       </h1>
       {/* <h2 className="text-lg text-red-600 mb-4 uppercase">{project.category}</h2> */}
