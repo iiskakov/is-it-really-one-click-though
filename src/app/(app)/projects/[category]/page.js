@@ -155,11 +155,11 @@ const ProjectsPage = ({ params }) => {
   const currentCategory = category || 'all';
   return(
       <>
-      <div className="h-[120px] mb-20">
+      <div className="h-[120px] mb-16">
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] text-[48px] font-semibold  text-white px-8 ${tthoves.className} uppercase`}>
+      <h1 className={`md:text-[96px] text-[48px] font-semibold  text-white px-10 ${tthoves.className} uppercase`}>
         Our works
       </h1>
       <div className="md:px-8 p-4">
