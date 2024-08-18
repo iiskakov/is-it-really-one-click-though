@@ -41,6 +41,7 @@ export default buildConfig({
       collections: {
         ['media']: true,
         ['projects']: true,
+        ['vhs']: true,
       },
       bucket: process.env.S3_BUCKET_NAME || '',
       config: {
