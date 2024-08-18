@@ -156,7 +156,7 @@ const ProjectsPage = ({ params }) => {
   const currentCategory = category || 'all';
   return(
       <>
-      <div className="h-[120px] mb-14">
+      <div className="h-[120px] mb-14 w-full">
         <Logo />
         <Nav />
       </div>

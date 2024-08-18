@@ -106,7 +106,7 @@ const ContactForm = () => {
 const ContactPage = () => {
   return(
       <>
-      <div className="h-[120px]">
+      <div className="h-[120px] w-full">
         <Logo />
         <Nav />
         </div>
