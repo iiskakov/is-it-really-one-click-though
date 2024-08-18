@@ -139,7 +139,7 @@ const AccordionItem = ({
               
               
               
-                  <div class={`${lato.className} absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}>
+                  <div class={`${lato.className} overflow-hidden absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}>
                   <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full">
                     <div class="">Directed by</div>
                     <div class="flex-grow border-b border-black mx-2"></div>
