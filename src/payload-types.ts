@@ -15,6 +15,7 @@ export interface Config {
     media: Media;
     projects: Project;
     categories: Category;
+    vhs: Vh;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -122,6 +123,22 @@ export interface Project {
 export interface Category {
   id: number;
   title?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vhs".
+ */
+export interface Vh {
+  id: number;
+  title: string;
+  year: number;
+  directedBy: string;
+  client: string;
+  category: string;
+  logo: number | Media;
+  video: number | Media;
   updatedAt: string;
   createdAt: string;
 }
