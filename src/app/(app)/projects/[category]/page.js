@@ -109,7 +109,7 @@ const Filter = async ({ currentCategory }) => {
   });
 
   return (
-    <div className={`flex space-x-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
+    <div className={`flex gap-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {categories?.docs?.map((category) => (
         <Link scroll={false} key={category.title} href={`/projects/${category.title}`}>
           <div
