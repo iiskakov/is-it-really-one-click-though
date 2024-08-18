@@ -10,9 +10,6 @@ import hyundai from "@/public/hyundai-logo.svg";
 import redbull from "@/public/redbull-logo.svg";
 import Image from 'next/image'
 
-import ReactPlayer from 'react-player';
-
-
 const accordionData = [
   {
     title: "HYUNDAI X \u00A0\u00A0\u00A0 \u00A0\u00A0\u00A0 ASTANA MOTORS",
@@ -124,24 +121,46 @@ const AccordionItem = ({
           <motion.div
             transition={{ duration: 0.4 }}
             initial={{ width: '0px' }}
-            animate={{ width: '300px' }}
+            animate={{ width: '430px' }}
             exit={{ width: '0px' }}
             className="accordion-content"
           >
-            <div
-              className="w-full h-full relative"
-            >
-                  <ReactPlayer
-                        url="https://samplelib.com/lib/preview/webm/sample-5s.webm"
-                    width="100%"
-                  height="100%"
-                controls={false}
-                          loop
-                          muted={true}
-                    playing={true}
-      />
 
-            </div>
+            <div class="relative w-full h-full ">
+            <video
+              src="https://samplelib.com/lib/preview/webm/sample-5s.webm"
+              autoPlay
+              loop
+              preload="auto"
+              muted
+              class="w-full h-full object-cover"
+            />
+
+              
+              
+              
+                  <div class={`${lato.className} absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}>
+                  <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full">
+                    <div class="">Directed by</div>
+                    <div class="flex-grow border-b border-black mx-2"></div>
+                    <div class="">Aisultan</div>
+                  </div>
+                  <div class="flex h-[40px] px-2 items-center bg-[#ECEAD3] w-full">
+                    <div class="">COMMERCIAL</div>
+                    <div class="flex-grow border-b border-black mx-2"></div>
+                    <div class="">2024</div>
+                  </div>
+                </div>
+          </div>
+
+            {/* <video */}
+            {/*   src="https://samplelib.com/lib/preview/webm/sample-5s.webm" */}
+            {/*   autoPlay */}
+            {/*   loop */}
+            {/*   preload="auto" */}
+            {/*   muted */}
+            {/*   style={{ width: '100%', height: '100%', objectFit: 'cover' }} */}
+            {/* /> */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -168,7 +187,7 @@ const App = () => {
       <motion.div id="works" className=" rotate-90 md:rotate-0 absolute bottom-4 left-0 right-0">
         <motion.div
           initial={{ x: '70vw' }} // Start with most of the content off-screen
-          animate={openIndex !== null ? { x: 0 } : { x: '70vw' }} // Slide in if an item is open, slide out if no items are open
+          animate={openIndex !== null ? { x: -200 } : { x: '70vw' }} // Slide in if an item is open, slide out if no items are open
           transition={{ duration: 0.5 }}
         >
           <div className="accordion-container">
