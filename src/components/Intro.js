@@ -36,9 +36,7 @@ const Intro = async () => {
        {/* New Text Block */}
       <div className={`${lato.className} z-10 absolute right-[10vw] top-[50vh] w-[170px] text-right text-white text-sm`}>
         <p>
-          We are full-cycle
-          production studio from
-          Almaty, Kazakhstan
+          2D is about unconventional ideas, new formats, and projects with meaning.
         </p>
       </div>
 
