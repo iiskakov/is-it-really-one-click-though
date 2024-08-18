@@ -20,14 +20,14 @@ const Nav = () => {
     <>
       {/* mobile */}
       <div className={`${lato.className} font-medium md:hidden absolute right-5 z-30 text-[16px] uppercase mt-4 gap-8 flex h-[46px] justify-center align-center items-center`}>
-        <a className={`${getLinkClasses('/contact')} text-[14px]`} href="/contact">Contact us</a>
+        <Link className={`${getLinkClasses('/contact')} text-[14px]`} href="/contact">Contact us</Link>
         <div onClick={toggleMenu} className="cursor-pointer">
       {!isMenuOpen && (<img src="/menu.svg" alt="Menu" className="h-[24px] w-auto "  />)}
         </div>
       </div>
 
       {isMenuOpen && (
-        <div className={`${lato.className} fixed inset-0 z-30 bg-black uppercase bg-opacity-95 flex flex-col items-center justify-center text-white text-[16px] font-medium`}>
+        <div className={`${lato.className} fixed inset-0 z-30 bg-black uppercase bg-opacity-100 flex flex-col items-center justify-center text-white text-[16px] font-medium`}>
           <div className="absolute top-5 right-5 cursor-pointer" onClick={toggleMenu}>
             <img src="/close.svg" alt="X" className="h-[32px] w-auto"/>
           </div>

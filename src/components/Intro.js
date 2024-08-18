@@ -20,7 +20,7 @@ const Intro = () => {
       {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10"/> */}
       <Logo/>
       <Nav/>
-      <Video videoUrl="https://storage.yandexcloud.kz/qarabucket/output.webm"/>
+      <Video  videoUrl="https://storage.yandexcloud.kz/qarabucket/output.webm"/>
 
        {/* New Text Block */}
       <div className={`${lato.className} absolute right-[10vw] top-[50vh] w-[170px] text-right text-white text-sm`}>
