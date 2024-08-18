@@ -25,7 +25,7 @@ const ContactForm = () => {
         </div>
 
         {/* Form Block */}
-        <div className={`bg-black bg-opacity-60 p-8 pt-0 rounded-lg ${lato.className}`}>
+        <div className={`bg-black bg-opacity-60 p-8 pt-0 mb-24 rounded-lg ${lato.className}`}>
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -90,7 +90,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="mt-4 w-32 py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition duration-300"
+              className="mt-4 h-[60px] w-full md:w-32 py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition duration-300 ml-auto block"
             >
               Submit
             </button>
