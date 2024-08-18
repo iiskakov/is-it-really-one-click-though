@@ -32,7 +32,7 @@ const Intro = () => {
       </div>
 
 
-      <div className="absolute bottom-0 right-0 leading-tight pr-[10vw] w-[70vw]">
+      <div className="absolute bottom-0 right-0 leading-tight pr-[10vw] w-[75vw]">
         <h1 className="text-white text-[46px] md:text-[136px] leading-none text-right font-bold">
           WE CREATE HIGH IMPACT
         </h1>
