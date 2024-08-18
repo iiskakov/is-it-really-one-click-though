@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { anton, tthoves, lato } from '@/app/fonts'
 
-import logo from "@/public/logo.svg";
+import tdlogo from "@/public/logo.svg";
 import hq from "@/public/hq.svg";
 import oppo from "@/public/oppo_logo.svg";
 import hyundai from "@/public/hyundai-logo.svg";
 import redbull from "@/public/redbull-logo.svg";
 import Image from 'next/image'
 
-const accordionData = [
+const accordionData2 = [
   {
     title: "HYUNDAI X \u00A0\u00A0\u00A0 \u00A0\u00A0\u00A0 ASTANA MOTORS",
     year: 2021,
@@ -70,6 +70,9 @@ const accordionData = [
   },
 ];
 
+const colors = ["#7861fe", "#63c278", "#ffde6d", "#fe2c52", "#fd7a00", "#fda4b5", "#9147AE"];
+
+
 const AccordionItem = ({
   title,
   isOpen,
@@ -79,9 +82,12 @@ const AccordionItem = ({
   client,
   category,
   index,
+  logo,
+  video,
   isInView,
 }) => {
 
+  const backgroundColor = colors[index % colors.length];
   return (
     <motion.div
       animate={isInView && {rotate: 0}}
@@ -89,7 +95,7 @@ const AccordionItem = ({
       whileHover={{ y: !isOpen ? -15 : 0 }}
       whileTap={{ scale: 0.95 }}
       className="accordion-item  h-[83vh] md:h-[83vh] "
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor }}
     >
       <motion.div
         initial={false}
@@ -98,20 +104,15 @@ const AccordionItem = ({
         onClick={onClick}
       >
         <div className="-rotate-90 md:rotate-0">
+          
           <div className="accordion-header-logo">
-            {client === 'OPPO' ? (
-              <Image src={oppo} alt="oppo logo" className="accordion-oppo" />
-            ) : client === 'HYUNDAI' ? (
-              <Image src={hyundai} alt="hyundai logo" className="accordion-hyundai" />
-            ) : client === 'REDBULL' ? (
-              <Image src={redbull} alt="redbull logo" className="accordion-redbull" />
-            ) : null}
+            <Image width={logo.width} height={logo.height} src={logo.url} alt="Client logo" className=" filter brightness-0" />
           </div>
           <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
-        <motion.div className={`${tthoves.className} accordion-title fixed md:static bottom-10`}>{title}</motion.div>
+        <motion.div className={`${tthoves.className} uppercase accordion-title fixed md:static bottom-10`}>{title}</motion.div>
         <div className="accordion-footer">
-          <Image src={logo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
+          <Image src={tdlogo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
           <Image src={hq} alt="HQ logo" className="accordion-hq hidden md:block" />
         </div>
       </motion.div>
@@ -128,7 +129,7 @@ const AccordionItem = ({
 
             <div class="relative w-full h-full ">
             <video
-              src="https://samplelib.com/lib/preview/webm/sample-5s.webm"
+              src={video.url}
               autoPlay
               loop
               preload="auto"
@@ -168,7 +169,7 @@ const AccordionItem = ({
   );
 };
 
-const App = () => {
+const App = ({accordionData}) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleItemClick = (index) => {

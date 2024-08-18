@@ -130,15 +130,15 @@ img {
 
 .accordion-header-logo {
   display: flex;
-  width: 60px;
+  width: 58px;
   margin-top: 10px;
   justify-content: center; /* Center horizontally if needed */
   align-items: center; /* Center vertically */
-  height: 40px; /* Make sure the div takes the full height of its parent */
+  height: 50px; /* Make sure the div takes the full height of its parent */
 }
 
 .accordion-oppo {
-  width: 100%;
+  /* width: 100%; */
   margin-top: 5px;
   height: auto;
   opacity: 0.9;

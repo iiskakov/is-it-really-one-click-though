@@ -6,13 +6,24 @@ import Nav from '@/components/Intro/Nav'
 import Video from '@/components/Intro/Video'
 import VHS from '@/components/VHS';
 
+import { getPayloadHMR } from '@payloadcms/next/utilities';
+import config from '@payload-config';
 
 
 
 
 
 
-const Intro = () => {
+const payload = await getPayloadHMR({ config });
+
+
+const Intro = async () => {
+
+  const vhs = await payload.find({
+    collection: 'vhs',
+  });
+
+  console.log(vhs.docs)
 
 
   return (
@@ -37,7 +48,7 @@ const Intro = () => {
           WE CREATE HIGH IMPACT
         </h1>
       </div>
-      <VHS/>
+    <VHS accordionData={vhs.docs}/>
 
 
 
