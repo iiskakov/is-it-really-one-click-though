@@ -9,6 +9,8 @@ import oppo from "@/public/oppo_logo.svg";
 import hyundai from "@/public/hyundai-logo.svg";
 import redbull from "@/public/redbull-logo.svg";
 import Image from 'next/image'
+import { yandexCloudImage } from '@/utils/functions';
+
 
 const accordionData2 = [
   {
@@ -106,7 +108,7 @@ const AccordionItem = ({
         <div className="-rotate-90 md:rotate-0">
           
           <div className="accordion-header-logo">
-            <Image width={logo.width} height={logo.height} src={logo.url} alt="Client logo" className=" filter brightness-0" />
+            <img src={yandexCloudImage(logo.url)} alt="Client logo" className="filter brightness-0" />
           </div>
           <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
@@ -129,7 +131,7 @@ const AccordionItem = ({
 
             <div class="relative w-full h-full ">
             <video
-              src={video.url}
+              src={yandexCloudImage(video.url)}
               autoPlay
               loop
               preload="auto"
