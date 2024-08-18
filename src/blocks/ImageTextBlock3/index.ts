@@ -30,7 +30,7 @@ export const ImageTextBlock3:Block = {
     },
     {
       name: 'text1',
-      type: 'text',
+      type: 'textarea',
       required: true,
     },
      {

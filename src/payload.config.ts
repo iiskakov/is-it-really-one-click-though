@@ -23,6 +23,11 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
+  upload: {
+    limits: {
+      fileSize: 100000000, // 100MB, written in bytes
+    },
+  },
   collections: [Users, Media, Projects, Categories, VHS],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
