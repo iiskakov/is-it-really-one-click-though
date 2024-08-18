@@ -87,8 +87,7 @@ export interface Media {
 export interface Project {
   id: number;
   name: string;
-  type?: string | null;
-  category?: (number | null) | Category;
+  category: number | Category;
   content?: {
     root: {
       type: string;
@@ -141,6 +140,15 @@ export interface Vh {
   video: number | Media;
   updatedAt: string;
   createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

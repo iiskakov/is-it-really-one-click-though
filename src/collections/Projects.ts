@@ -16,6 +16,9 @@ import { OneVideoBlock } from '../blocks/OneVideoBlock'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
+  admin:  {
+    useAsTitle: 'name',
+  },
   access: {
     read: () => true,
   },
@@ -26,13 +29,11 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      name: 'type',
-      type: 'text',
-    },
-    {
       name: 'category',
       type: 'relationship',
       relationTo: 'categories',
+      required: true,
+      defaultValue: 4
     },
     {
       name: 'content',
