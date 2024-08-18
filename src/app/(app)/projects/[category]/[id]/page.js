@@ -301,7 +301,7 @@ const NextProject = async ({ id }) => {
       <div className={`flex flex-row md:h-[400px] items-center bg-black m-8 p-8 relative border-t border-b border-1 border-white/20 ${tthoves.className}`}>
         <div className="font-medium flex flex-col-reverse gap-4 md:gap-0 md:flex-row justify-between w-full items-center uppercase">
           <div className="text-left">
-            <h2 className="text-2xl md:text-[32px] opacity-20 mb-2">{nextProject.name}</h2>
+            <h2 className="text-2xl md:text-[32px] opacity-20">{nextProject.name}</h2>
           </div>
           <img src={yandexCloudImage(nextProject.url)} alt={nextProject.name} className="w-auto md:h-[320px] object-cover aspect-video" />
           <Link className="flex flex-col text-center text-white no-underline" href={`/projects/${nextProject.category.title}/${nextProject.id}`}>
