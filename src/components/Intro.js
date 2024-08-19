@@ -18,7 +18,7 @@ import config from '@payload-config';
 const payload = await getPayloadHMR({ config });
 
 
-const Intro = async () => {
+const Intro = async ({data, home}) => {
 
   const vhs = await payload.find({
     collection: 'vhs',
@@ -34,14 +34,15 @@ const Intro = async () => {
        {/* New Text Block */}
       <div className={`${lato.className} z-10 absolute right-[10vw] top-[35vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
         <p>
-          2D is about unconventional ideas, new formats, and projects with meaning.
+      {home.Text}
+
         </p>
       </div>
 
 
       <div className="z-10 absolute bottom-[40vh] md:bottom-0 md:right-0 leading-tight pl-4 md:pr-[10vw] md:w-[75vw]">
-        <h1 className={`${tthoves.className} text-white text-[54px] md:text-[136px] leading-none md:text-right font-bold`}>
-          WE CREATE HIGH IMPACT
+        <h1 className={`${tthoves.className} uppercase text-white text-[54px] md:text-[136px] leading-none md:text-right font-bold`}>
+    {home.heading}
         </h1>
       </div>
     <VHSMobile accordionData={vhs.docs}/>

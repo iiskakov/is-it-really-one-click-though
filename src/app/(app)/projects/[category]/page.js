@@ -34,7 +34,6 @@ const allProjects = [
 ];
 
 
-  const payload = await getPayloadHMR({ config });
 
 
 
@@ -104,6 +103,7 @@ const ProjectsSkeleton = () => {
 };
 
 const Filter = async ({ currentCategory }) => {
+  const payload = await getPayloadHMR({ config });
 
   const categories = await payload.find({
     collection: 'categories',
@@ -126,6 +126,7 @@ const Filter = async ({ currentCategory }) => {
 };
 
 const Projects = async ({ params }) => {
+  const payload = await getPayloadHMR({ config });
 
   const { category } = params;
 
@@ -151,7 +152,12 @@ const Projects = async ({ params }) => {
 
 
 
-const ProjectsPage = ({ params }) => {
+const ProjectsPage = async ({ params }) => {
+  const payload = await getPayloadHMR({ config });
+  const works = await payload.findGlobal({
+    slug: 'works', // required
+  })
+
   const { category } = params;
   const currentCategory = category || 'all';
   return(
@@ -161,7 +167,7 @@ const ProjectsPage = ({ params }) => {
         <Nav />
       </div>
       <h1 className={`whitespace-nowrap md:text-[96px] text-[48px] font-semibold  text-white px-8 ${tthoves.className} uppercase`}>
-        Our works
+        {works.heading}
       </h1>
       <div className="md:px-8 p-4">
         <Filter  currentCategory={currentCategory} />
