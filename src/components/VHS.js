@@ -124,7 +124,7 @@ const App = ({accordionData}) => {
       className="h-screen w-screen z-10 relative hidden md:block"
       style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
-        zIndex: openIndex !== null? '30' : '20',
+        zIndex: openIndex !== null? '10' : '20',
         transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
     >
