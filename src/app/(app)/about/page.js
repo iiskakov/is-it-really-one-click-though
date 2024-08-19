@@ -21,7 +21,7 @@ const AboutPage = () => {
         <p className="text-[16px] px-8 mb-[20px] opacity-50">
           {/* 2D */}
         </p>
-      <p className="px-8 text-[40px] leading-tight md:max-w-[65vw]">
+      <p className="px-8 text-[24px] md:text-[40px] leading-tight md:max-w-[65vw]">
         We operate in two dimensions.  First: full-scale video production—creating videos, podcasts, documentaries, and more. Second: events.
         </p>
     </div>
