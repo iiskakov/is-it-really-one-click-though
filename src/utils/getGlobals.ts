@@ -1,4 +1,4 @@
-import type { Config } from 'src/payload-types'
+import type { Config } from 'payload'
 
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
