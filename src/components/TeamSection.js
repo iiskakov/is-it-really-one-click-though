@@ -4,40 +4,9 @@ import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { lato } from '@/app/fonts';
 import { motion } from "framer-motion";
+import Image from 'next/image';
+import { yandexCloudImage } from '@/utils/functions';
 
-
-const teamMembers2 = [
-  {
-    name: 'Yerkebulan',
-    title: 'General Producer',
-    description: 'As the General Producer, he orchestrates the flibber-flabber of our creative chaos, ensuring every project sizzles with snazzy splendor. He leads our team through the marshmallow meadows of imagination.',
-    image: 'https://via.placeholder.com/300x400.png?text=Yerkebulan',
-  },
-  {
-    name: 'Sardor',
-    title: 'Director of Photography',
-    description: 'His eye for the whimsical transforms every scene into a dazzling daydream. His talent for visual storytelling fills each frame with snazzy splendor and fizzy fun, bringing our imaginative stories to life.',
-    image: 'https://via.placeholder.com/300x400.png?text=Sardor',
-  },
-  {
-    name: 'Aizada',
-    title: 'Chief Marketing Officer',
-    description: 'As the Chief Marketing Officer, she brings a fizz of creativity and a splash of ingenuity to our promotion. Her expertise in storytelling and audience engagement ensures that our projects reach and resonate with a wide audience.',
-    image: 'https://via.placeholder.com/300x400.png?text=Aizada',
-  },
-  {
-    name: 'Daniyar',
-    title: 'Creative Director',
-    description: 'His creative direction is the backbone of our projects. With an eye for detail and a passion for innovation, Daniyar ensures every project is not only a success but also a work of art.',
-    image: 'https://via.placeholder.com/300x400.png?text=Daniyar',
-  },
-  {
-    name: 'Alina',
-    title: 'Head of Design',
-    description: 'Alina’s design leadership crafts the visual language that brings our concepts to life. She blends aesthetics with functionality to create designs that are as effective as they are beautiful.',
-    image: 'https://via.placeholder.com/300x400.png?text=Alina',
-  },
-];
 
 
 export function useClientMediaQuery(query) {
@@ -67,8 +36,10 @@ const TeamMemberCard = ({ member }) => {
   return (
     <div className="flex-shrink-0 flex gap-8 flex-row ">
       <div className="relative h-auto overflow-hidden shadow-lg">
-        <img
-          src={member.image.url}
+        <Image
+          src={yandexCloudImage(member.image.url)}
+          width={member.image.width}
+          height={member.image.height}
           alt={member.name}
           className="w-[400px] h-auto object-cover"
         />
