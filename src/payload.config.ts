@@ -14,7 +14,7 @@ import { VHS } from './collections/VHS'
 import  Categories  from './collections/Categories'
 
 import { Home } from './globals/Home'
-import { Works } from './globals/Works'
+import { About } from './globals/About'
 
 import { s3Storage } from '@payloadcms/storage-s3'
 
@@ -32,7 +32,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Projects, Categories, VHS],
-  globals: [Home, Works],
+  globals: [Home, About],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

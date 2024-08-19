@@ -1,7 +1,7 @@
 import { GlobalConfig } from 'payload'
 
-export const Works: GlobalConfig = {
-  slug: 'works',
+export const About: GlobalConfig = {
+  slug: 'about',
   access: {
     read: () => true,
   },
@@ -11,5 +11,11 @@ export const Works: GlobalConfig = {
       type: 'text',
       required: true
     },
+    {
+      name: 'text',
+      type: 'textarea',
+      required: true
+    },
+
   ],
 }
