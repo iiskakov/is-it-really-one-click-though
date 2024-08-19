@@ -197,7 +197,7 @@ export interface Home {
   id: number;
   heading: string;
   text: string;
-  video: number | Media;
+  video?: number | Media | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
