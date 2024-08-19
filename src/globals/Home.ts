@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload'
+import { GlobalConfig } from 'payload';
 
 export const Home: GlobalConfig = {
   slug: 'home',
@@ -9,12 +9,18 @@ export const Home: GlobalConfig = {
     {
       name: 'heading',
       type: 'text',
-      required: true
+      required: true,
     },
     {
-      name: 'Text',
+      name: 'text',
       type: 'textarea',
-      required: true
+      required: true,
     },
+    {
+      name: 'video', // Add this field for the video
+      type: 'upload',  // Specify 'upload' to use the media library
+      relationTo: 'media',  // Referencing the 'media' collection
+      required: true,
+   },
   ],
-}
+};

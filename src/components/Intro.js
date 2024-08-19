@@ -9,6 +9,8 @@ import VHS from '@/components/VHS';
 
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
+import { yandexCloudImage } from '@/utils/functions';
+
 
 
 
@@ -29,7 +31,7 @@ const Intro = async ({data, home}) => {
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-[7]"/>
       <Logo/>
       <Nav/>
-      <Video  videoUrl="https://storage.yandexcloud.kz/qarabucket/output.webm"/>
+      <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
        {/* New Text Block */}
       <div className={`${lato.className} z-10 absolute right-[10vw] top-[35vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>

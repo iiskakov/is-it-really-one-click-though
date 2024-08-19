@@ -196,7 +196,8 @@ export interface PayloadMigration {
 export interface Home {
   id: number;
   heading: string;
-  Text: string;
+  text: string;
+  video: number | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
