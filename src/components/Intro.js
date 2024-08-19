@@ -1,5 +1,6 @@
 import React from 'react';
 import { anton, lato, tthoves } from '@/app/fonts';
+import Link from 'next/link';
 
 import Logo from '@/components/Intro/Logo'
 import Nav from '@/components/Intro/Nav'
@@ -33,12 +34,22 @@ const Intro = async ({data, home}) => {
       <Nav/>
       <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
-       {/* New Text Block */}
-      <div className={`${lato.className} z-10 absolute right-[10vw] top-[35vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
-        <p>
-      {home.text}
+      <div className={`${lato.className} absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[19] flex flex-col`}>
+        <Link className="hover:underline" href="/projects/Ads">Ads</Link>
+        <Link className="hover:underline" href="/projects/Communication">Communication</Link>
+        <Link className="hover:underline" href="/projects/Production">Production</Link>
+        <div className="text-[#F03021] cursor-pointer underline">Watch showreel</div>
+      </div>
 
-        </p>
+
+
+
+
+
+
+       {/* New Text Block */}
+      <div className={`${lato.className} z-10 absolute right-4 md:right-[10vw] top-[40vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
+        <p> {home.text} </p>
       </div>
 
 
