@@ -36,7 +36,7 @@ const Intro = async ({data, home}) => {
        {/* New Text Block */}
       <div className={`${lato.className} z-10 absolute right-[10vw] top-[35vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
         <p>
-      {home.Text}
+      {home.text}
 
         </p>
       </div>
