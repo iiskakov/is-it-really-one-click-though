@@ -153,6 +153,10 @@ const Projects = async ({ params }) => {
 
 
 const ProjectsPage = async ({ params }) => {
+  const payload = await getPayloadHMR({ config });
+  const works = await payload.findGlobal({
+    slug: 'works', // required
+  })
 
   const { category } = params;
   const currentCategory = category || 'all';

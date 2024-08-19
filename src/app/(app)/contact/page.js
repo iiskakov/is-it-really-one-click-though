@@ -2,22 +2,25 @@ import React from 'react';
 import { lato, tthoves } from '@/app/fonts';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
+import { getPayloadHMR } from '@payloadcms/next/utilities';
+import config from '@payload-config';
 
 
-const ContactForm = () => {
+
+const ContactForm = async () => {
+const payload = await getPayloadHMR({ config });
+  const contact = await payload.findGlobal({
+    slug: 'contact', // required
+  })
+
   return (
     <div className="min-h-screen bg-black text-white flex justify-center items-center">
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Text Block */}
         <div className={`flex flex-col  p-8 pt-0 ${lato.className}`}>
-          <h1 className={`text-5xl md:text-[96px] font-semibold mb-8 ${tthoves.className}`}>LET&apos;S WORK TOGETHER</h1>
+          <h1 className={`text-5xl md:text-[96px] font-semibold mb-8 uppercase ${tthoves.className}`}>{contact.heading}</h1>
           <p className="mb-6 opacity-60">
-            Not sure where to start?
-            <br />
-            <br />
-            Tell us about your product, your timeline, how you heard about us, and where you&apos;re located.
-            <br />
-            We read every message. So, thanks in advance for making it a good one.
+            {contact.Text}
           </p>
           <a href="mailto:hr@2d.pro" className="text-gray-400 underline hover:text-white">
             Looking for a job?

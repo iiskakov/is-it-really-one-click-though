@@ -6,6 +6,10 @@ import sharp from 'sharp'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
+import { Home } from './globals/Home'
+import { About } from './globals/About'
+import { Works } from './globals/Works'
+import { Contact } from './globals/Contact'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -13,8 +17,6 @@ import { Projects } from './collections/Projects'
 import { VHS } from './collections/VHS'
 import  Categories  from './collections/Categories'
 
-import { Home } from './globals/Home'
-import { About } from './globals/About'
 
 import { s3Storage } from '@payloadcms/storage-s3'
 
@@ -31,8 +33,8 @@ export default buildConfig({
       fileSize: 100000000, // 100MB, written in bytes
     },
   },
+  globals: [Home, About, Works, Contact],
   collections: [Users, Media, Projects, Categories, VHS],
-  globals: [Home, About],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -24,7 +24,9 @@ export interface Config {
   };
   globals: {
     home: Home;
+    about: About;
     works: Work;
+    contact: Contact;
   };
   locale: null;
   user: User & {
@@ -200,11 +202,33 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: number;
+  heading: string;
+  text: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "works".
  */
 export interface Work {
   id: number;
   heading: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: number;
+  heading: string;
+  Text: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
