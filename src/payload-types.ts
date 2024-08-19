@@ -208,6 +208,15 @@ export interface About {
   id: number;
   heading: string;
   text: string;
+  teamMembers?:
+    | {
+        name: string;
+        title: string;
+        description: string;
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

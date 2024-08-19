@@ -33,7 +33,7 @@ const AboutPage = async () => {
         </p>
     </div>
 
-        <TeamSection/>
+    <TeamSection teamMembers={about.teamMembers}/>
         </div>
 
   )

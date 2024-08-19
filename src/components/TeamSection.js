@@ -6,7 +6,7 @@ import { lato } from '@/app/fonts';
 import { motion } from "framer-motion";
 
 
-const teamMembers = [
+const teamMembers2 = [
   {
     name: 'Yerkebulan',
     title: 'General Producer',
@@ -68,7 +68,7 @@ const TeamMemberCard = ({ member }) => {
     <div className="flex-shrink-0 flex gap-8 flex-row ">
       <div className="relative h-auto overflow-hidden shadow-lg">
         <img
-          src={member.image}
+          src={member.image.url}
           alt={member.name}
           className="w-[400px] h-auto object-cover"
         />
@@ -157,7 +157,7 @@ const TeamMemberCard = ({ member }) => {
 //   );
 // };
 
-const TeamSection = () => {
+const TeamSection = ({teamMembers}) => {
   const containerRef = useRef(null);
   const isMobile = useClientMediaQuery('(max-width: 800px)')
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
