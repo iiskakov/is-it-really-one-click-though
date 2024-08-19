@@ -121,7 +121,7 @@ const App = ({accordionData}) => {
 
   return (
     <div
-      className="h-screen w-screen z-10 relative"
+      className="h-screen w-screen z-10 relative hidden md:block"
       style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
         zIndex: openIndex !== null? '30' : '20',

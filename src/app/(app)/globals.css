@@ -179,3 +179,33 @@ img {
   opacity: 0.8;
   align-self: flex-end;
 }
+
+.mob-accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mob-accordion-item {
+  cursor: pointer;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.mob-accordion-year {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.mob-accordion-content {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
