@@ -26,6 +26,7 @@ const AccordionItem = ({
   category,
   index,
   logo,
+  directedBy,
   video,
   isInView,
 }) => {
@@ -87,12 +88,12 @@ const AccordionItem = ({
                   <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full">
                     <div class="">Directed by</div>
                     <div class="flex-grow border-b border-black mx-2"></div>
-                    <div class="">Aisultan</div>
+                    <div class="">{directedBy}</div>
                   </div>
                   <div class="flex h-[40px] px-2 items-center bg-[#ECEAD3] w-full">
-                    <div class="">COMMERCIAL</div>
+                    <div class="">{category}</div>
                     <div class="flex-grow border-b border-black mx-2"></div>
-                    <div class="">2024</div>
+                    <div class="">{year}</div>
                   </div>
                 </div>
           </div>

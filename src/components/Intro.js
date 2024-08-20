@@ -22,7 +22,7 @@ import { yandexCloudImage } from '@/utils/functions';
 const payload = await getPayloadHMR({ config });
 
 
-const Intro = async ({data, home}) => {
+const Intro = async ({home}) => {
 
   const vhs = await payload.find({
     collection: 'vhs',
@@ -35,7 +35,7 @@ const Intro = async ({data, home}) => {
       <Nav/>
       <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
-      <div className={`${lato.className} absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21] flex flex-col`}>
+      <div className={`${lato.className} hidden md:flex absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21]  flex-col`}>
         <Link className="hover:underline" href="/projects/Ads">Ads</Link>
         <Link className="hover:underline" href="/projects/Communication">Communication</Link>
         <Link className="hover:underline" href="/projects/Production">Production</Link>
@@ -49,7 +49,7 @@ const Intro = async ({data, home}) => {
 
 
        {/* New Text Block */}
-      <div className={`${lato.className} z-10 absolute right-4 md:right-[10vw] top-[40vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
+      <div className={`${lato.className} z-10 absolute right-4 md:right-[10vw] top-[30vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
         <p> {home.text} </p>
       </div>
 
