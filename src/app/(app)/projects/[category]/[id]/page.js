@@ -10,6 +10,7 @@ import Logo from '@/components/Intro/Logo';
 import { Suspense } from "react"
 import { yandexCloudImage } from '@/utils/functions';
 
+import ImageGalleryBlock from '@/components/ImageGalleryBlock';
 
 const payload = await getPayloadHMR({ config });
 
@@ -289,6 +290,8 @@ const renderBlock = (data) => {
       return <OneImageBlock data={data} key={data.fields.id} />;
     case 'OneVideo':
       return <OneVideoBlock data={data} key={data.fields.id} />;
+    case 'ImageGallery':
+      return <ImageGalleryBlock data={data} key={data.fields.id} />;
     default:
       return null; // or some fallback UI
   }

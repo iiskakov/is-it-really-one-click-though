@@ -13,6 +13,7 @@ import { TextBlock } from '../blocks/TextBlock'
 import { TwoImagesBlock } from '../blocks/TwoImagesBlock'
 import { OneImageBlock } from '../blocks/OneImageBlock'
 import { OneVideoBlock } from '../blocks/OneVideoBlock'
+import { ImageGalleryBlock } from '../blocks/ImageGalleryBlock'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -42,7 +43,7 @@ export const Projects: CollectionConfig = {
 features: ({ defaultFeatures, rootFeatures }) => [
       ...defaultFeatures,
         BlocksFeature({
-              blocks: [ImageTextBlock, ImageTextBlock2, ImageTextBlock3, TextBlock, TwoImagesBlock, OneImageBlock, OneVideoBlock],
+              blocks: [ImageTextBlock, ImageTextBlock2, ImageTextBlock3, TextBlock, TwoImagesBlock, OneImageBlock, OneVideoBlock, ImageGalleryBlock],
         }),
         ],
       }),
