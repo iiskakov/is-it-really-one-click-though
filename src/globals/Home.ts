@@ -21,5 +21,10 @@ export const Home: GlobalConfig = {
       type: 'upload',  // Specify 'upload' to use the media library
       relationTo: 'media',  // Referencing the 'media' collection
    },
+    {
+      name: 'showreel', // Add this field for the video
+      type: 'upload',  // Specify 'upload' to use the media library
+      relationTo: 'media',  // Referencing the 'media' collection
+   },
   ],
 };

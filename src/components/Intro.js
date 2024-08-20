@@ -7,6 +7,7 @@ import Nav from '@/components/Intro/Nav'
 import Video from '@/components/Intro/Video'
 import VHSMobile from '@/components/VHSMobile';
 import VHS from '@/components/VHS';
+import ShowreelModal from '@/components/ShowreelModal';
 
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
@@ -34,11 +35,11 @@ const Intro = async ({data, home}) => {
       <Nav/>
       <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
-      <div className={`${lato.className} absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[19] flex flex-col`}>
+      <div className={`${lato.className} absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21] flex flex-col`}>
         <Link className="hover:underline" href="/projects/Ads">Ads</Link>
         <Link className="hover:underline" href="/projects/Communication">Communication</Link>
         <Link className="hover:underline" href="/projects/Production">Production</Link>
-        <div className="text-[#F03021] cursor-pointer underline">Watch showreel</div>
+        <ShowreelModal url={yandexCloudImage(home.showreel.url)} />
       </div>
 
 

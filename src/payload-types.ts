@@ -198,6 +198,7 @@ export interface Home {
   heading: string;
   text: string;
   video?: number | Media | null;
+  showreel?: number | Media | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
