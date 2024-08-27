@@ -29,7 +29,7 @@ const Intro = async ({home}) => {
   });
 
   return (
-    <div className="relative h-svh flex overflow-hidden">
+    <div className="relative h-screen flex overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-[7]"/>
       <Logo/>
       <Nav/>
