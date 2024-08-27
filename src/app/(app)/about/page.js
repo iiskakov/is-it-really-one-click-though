@@ -2,6 +2,7 @@ import React from 'react';
 import { lato, tthoves } from '@/app/fonts';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
+import FooterNew from '@/components/Footer';
 import TeamSection from '@/components/TeamSection';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
@@ -34,6 +35,7 @@ const AboutPage = async () => {
     </div>
 
     <TeamSection teamMembers={about.teamMembers}/>
+        <FooterNew/>
         </div>
 
   )

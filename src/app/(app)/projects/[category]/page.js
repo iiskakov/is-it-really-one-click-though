@@ -7,6 +7,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 import { Suspense } from "react"
 import { yandexCloudImage } from '@/utils/functions';
+import FooterNew from '@/components/Footer';
 
 
 
@@ -176,6 +177,7 @@ const ProjectsPage = async ({ params }) => {
           <Projects params={params}/>
         </Suspense>
       </div>
+        <FooterNew/>
     </>
 
   )

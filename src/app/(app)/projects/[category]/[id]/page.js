@@ -9,6 +9,7 @@ import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
 import { Suspense } from "react"
 import { yandexCloudImage } from '@/utils/functions';
+import FooterNew from '@/components/Footer';
 
 import ImageGalleryBlock from '@/components/ImageGalleryBlock';
 
@@ -340,6 +341,7 @@ export default async function ProjectPage({ params }) {
 
 
   return (
+    <>
     <div className={`px-8 bg-black text-white ${lato.className}`}>
         <div className="h-[120px] mb-16 w-full">
         <Logo />
@@ -370,6 +372,9 @@ export default async function ProjectPage({ params }) {
       {/* <TextBlock/> */}
       {/* <TwoImagesBlock/> */}
       {/* <OneImageBlock/> */}
+
     </div>
+              <FooterNew/>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import Logo from '@/components/Intro/Logo';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import config from '@payload-config';
 import { Suspense } from "react"
+import FooterNew from '@/components/Footer';
 
 
 
@@ -118,6 +119,8 @@ const ContactPage = () => {
         <Suspense fallback={<></>}>
         <ContactForm/>
     </Suspense>
+                      <FooterNew/>
+
     </>
 
   )

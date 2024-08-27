@@ -1,10 +1,59 @@
 import React from 'react';
 import { lato } from '@/app/fonts';
+import Link from 'next/link';
+
+
+export default function FooterNew() {
+  return (
+    <footer className="bg-black text-white py-8">
+      <div className={`${lato.className} mx-auto px-4 sm:px-6 lg:px-8`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Navigation Links */}
+          <div className="flex flex-col space-y-4">
+            <Link className="hover:underline" href="/">Home</Link>
+            <Link className="hover:underline"  href="/projects/all" prefetch={true}>Works</Link>
+            <Link className="hover:underline"  href="/about">About</Link >
+            <Link className="hover:underline"  href="/contact">Contact us</Link >
+
+          </div>
+
+          {/* Phone Number */}
+          <div className="flex flex-col space-y-4 md:self-end">
+            <div>
+              <p className="font-bold">Phone</p>
+              <a href="tel:+77054959340" className="text-gray-400 hover:underline">+7 705 495 93 40</a>
+            </div>
+          </div>
+
+          {/* E-mail */}
+          <div className="flex flex-col space-y-4 md:self-end">
+            <div>
+              <p className="font-bold">Email</p>
+              <a href="mailto:sales@2d.pro" className="text-gray-400 hover:underline">sales@2d.pro</a>
+            </div>
+          </div>
+
+          {/* Instagram */}
+          <div className="flex flex-col space-y-4 md:self-end">
+            <div>
+              <p className="font-bold">Insta</p>
+              <a href="https://www.instagram.com/dva.d.prod" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@dva.d.prod</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center text-gray-600 lg:text-left">
+          <p>2D production © 2024</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 
 const Footer = () => {
     return (
-      <section className="h-screen flex flex-col justify-end">
+    <section className="h-screen flex flex-col justify-end">
       <div id="contact" className="flex gap-10 md:flex-row flex-col-reverse justify-between items-center text-white m-8">
         <div className="flex flex-col justify-between md:h-[170px] items-start md:w-[170px] mb-10 md:mb-0">
           <img src="/2d-logo.svg" alt="Logo" className="w-[90vw] mb-8 md:mb-0 h-auto md:h-[80px] md:w-auto" />
@@ -40,4 +89,3 @@ const Footer = () => {
     );
 };
 
-export default Footer;
