@@ -124,8 +124,8 @@ const AccordionItem = ({
 
         >
                       <video
+                        playsInline
               src={yandexCloudImage(video.url)}
-
             autoPlay
             loop
             muted
