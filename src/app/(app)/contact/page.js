@@ -24,7 +24,7 @@ const payload = await getPayloadHMR({ config });
           <p className="mb-6 opacity-60">
             {contact.Text}
           </p>
-          <a href="mailto:hr@2d.pro" className="text-gray-400 underline hover:text-white">
+          <a href="https://t.me/qara_vacancies" className="text-gray-400 underline hover:text-white">
             Looking for a job?
           </a>
         </div>
