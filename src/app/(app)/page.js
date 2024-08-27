@@ -18,7 +18,7 @@ export default async function Home() {
   })
 
   return (
-    <div className="h-dvh">
+    <div className="h-svh">
         <Intro  home={home}/>
       {/* <About /> */}
       {/* <VHS /> */}
