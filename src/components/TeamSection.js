@@ -6,6 +6,7 @@ import { lato } from '@/app/fonts';
 import { motion } from "framer-motion";
 import Image from 'next/image';
 import { yandexCloudImage } from '@/utils/functions';
+import ReactMarkdown from 'react-markdown';
 
 
 
@@ -32,7 +33,6 @@ export function useClientMediaQuery(query) {
 
 
 const TeamMemberCard = ({ member }) => {
-
   return (
     <div className="flex-shrink-0 flex gap-8 flex-row ">
       <div className="relative h-auto overflow-hidden shadow-lg">
@@ -44,14 +44,48 @@ const TeamMemberCard = ({ member }) => {
           className="w-[400px] h-auto object-cover"
         />
       </div>
-    <div className={`${lato.className} mt-6 w-[360px] flex justify-end flex-col`}>
-        <p className="mt-2 mb-8 text-[16px] text-gray-300 leading-relaxed">{member.description}</p>
+      <div className={`${lato.className} mt-6 w-[360px] flex justify-end flex-col`}>
+        <ReactMarkdown
+          className="mt-2 mb-8 text-[16px] text-gray-300 leading-relaxed"
+          components={{
+            a: ({ href, children }) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#F03021] underline">
+                {children}
+              </a>
+            ),
+            p: 'p', // Optional: ensure paragraphs are rendered as expected
+          }}
+        >
+          {member.description}
+        </ReactMarkdown>
         <h3 className="text-[20px] font-bold text-white">{member.name}</h3>
         <p className="text-[16px] text-white opacity-50 mt-1">{member.title}</p>
       </div>
     </div>
   );
 };
+
+// const TeamMemberCard = ({ member }) => {
+
+//   return (
+//     <div className="flex-shrink-0 flex gap-8 flex-row ">
+//       <div className="relative h-auto overflow-hidden shadow-lg">
+//         <Image
+//           src={yandexCloudImage(member.image.url)}
+//           width={member.image.width}
+//           height={member.image.height}
+//           alt={member.name}
+//           className="w-[400px] h-auto object-cover"
+//         />
+//       </div>
+//     <div className={`${lato.className} mt-6 w-[360px] flex justify-end flex-col`}>
+//         <p className="mt-2 mb-8 text-[16px] text-gray-300 leading-relaxed">{member.description}</p>
+//         <h3 className="text-[20px] font-bold text-white">{member.name}</h3>
+//         <p className="text-[16px] text-white opacity-50 mt-1">{member.title}</p>
+//       </div>
+//     </div>
+//   );
+// };
 
 // const TeamSection = () => {
 //   const [isMobile, setIsMobile] = useState(false);
