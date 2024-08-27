@@ -145,7 +145,7 @@ const App = ({accordionData}) => {
       <div
               style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
-        zIndex: openIndex !== null? '10' : '20',
+        zIndex: openIndex !== null? '21' : '20',
         transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
                 className="h-screen"

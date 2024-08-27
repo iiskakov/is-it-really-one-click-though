@@ -83,19 +83,20 @@ const AccordionItem = ({
 
               
               
-              
-                  <div class={`${lato.className} overflow-hidden absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}>
-                  <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full">
-                    <div class="">Directed by</div>
-                    <div class="flex-grow border-b border-black mx-2"></div>
-                    <div class="">{directedBy} </div>
-                  </div>
-                  <div class="flex h-[40px] px-2 items-center bg-[#ECEAD3] w-full">
-                    <div class="">{category}</div>
-                    <div class="flex-grow border-b border-black mx-2"></div>
-                    <div class="">{year}</div>
-                  </div>
-                </div>
+
+              {/* Lines text */}
+                {/* <div class={`${lato.className} overflow-hidden absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}> */}
+                {/*   <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full"> */}
+                {/*     <div class="">Directed by</div> */}
+                {/*     <div class="flex-grow border-b border-black mx-2"></div> */}
+                {/*     <div class="">{directedBy} </div> */}
+                {/*   </div> */}
+                {/*   <div class="flex h-[40px] px-2 items-center bg-[#ECEAD3] w-full"> */}
+                {/*     <div class="">{category}</div> */}
+                {/*     <div class="flex-grow border-b border-black mx-2"></div> */}
+                {/*     <div class="">{year}</div> */}
+                {/*   </div> */}
+                {/* </div> */}
           </div>
 
             {/* <video */}
@@ -122,10 +123,10 @@ const App = ({accordionData}) => {
 
   return (
     <div
-      className="h-screen w-screen z-10 relative hidden md:block"
+      className="h-screen w-screen relative hidden md:block"
       style={{
         backgroundColor: openIndex !== null ? 'black' : 'transparent',
-        zIndex: openIndex !== null? '10' : '20',
+        zIndex: openIndex !== null? '21' : '20',
         transition: 'background-color 0.5s ease-in-out', // Smooth transition
       }}
     >

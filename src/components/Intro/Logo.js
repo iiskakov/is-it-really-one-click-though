@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Logo() {
   return (
-    <div className="absolute top-8 left-5 md:left-8 z-20">
+    <div className="absolute top-8 left-5 md:left-8 z-[22]">
       <Link href="/">
         <img
           src="/2d-logo.svg"
