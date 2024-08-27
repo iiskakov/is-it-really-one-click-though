@@ -47,7 +47,7 @@ const ProjectCard = ({ project }) => {
         width={633}
         quality={95}
         height={380}
-        className="object-cover w-full h-full transform transition-transform duration-200 group-hover:scale-105 aspect-video"
+        className="object-cover w-full h-[30vh] md:h-[42vh] transform transition-transform duration-200 group-hover:scale-105 aspect-video"
       />
       <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 md:mt-4 md:mb-16">
         <h2 className={`text-xl md:text-[40px] font-bold text-white text-start ${lato.className}`}>
