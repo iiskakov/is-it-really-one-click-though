@@ -54,7 +54,11 @@ const AccordionItem = ({
           </div>
           <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
-        <motion.div className={`${tthoves.className} uppercase accordion-title fixed md:static bottom-10`}>{title}</motion.div>
+              <motion.div className={`${tthoves.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
+  {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
+</motion.div>
+
+        {/* <motion.div className={`${tthoves.className} uppercase accordion-title fixed md:static bottom-10`}>{title}</motion.div> */}
         <div className="accordion-footer">
           <Image src={tdlogo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
           <Image src={hq} alt="HQ logo" className="accordion-hq hidden md:block" />

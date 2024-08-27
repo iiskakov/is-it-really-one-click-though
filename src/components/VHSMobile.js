@@ -105,8 +105,13 @@ const AccordionItem = ({
       className="mob-accordion-header flex flex-row w-full h-[64px] items-center justify-between px-4"
       onClick={onClick}
     >
-      <motion.div className={`${tthoves.className} text-[20px] font-bold`}>{title}</motion.div>
+      <motion.div className={`${tthoves.className} text-[20px] font-bold`}>
+  {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
+</motion.div>
+
+      {/* <motion.div className={`${tthoves.className} text-[20px] font-bold`}>{title}</motion.div> */}
       <motion.div className="mob-accordion-year">{year}</motion.div>
+
     </motion.div>
     <AnimatePresence>
       {isOpen && (
