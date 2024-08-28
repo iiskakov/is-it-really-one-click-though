@@ -12,16 +12,14 @@ import Image from 'next/image'
 import { yandexCloudImage } from '@/utils/functions';
 
 
-
 const colors = ["#fe2c52", "#7861fe", "#63c278", "#ffde6d", "#fd7a00", "#fda4b5", "#9147AE"];
-
 
 const AccordionItem = ({
   title,
   isOpen,
   onClick,
   year,
-  color,
+  color, // color from the backend
   client,
   category,
   index,
@@ -31,41 +29,39 @@ const AccordionItem = ({
   isInView,
 }) => {
 
-  const backgroundColor = colors[index % colors.length];
+  // Use the provided color if present, otherwise use the current logic
+  const backgroundColor = color || colors[index % colors.length];
+
   return (
     <motion.div
-      animate={isInView && {rotate: 0}}
+      animate={isInView && { rotate: 0 }}
       transition={{ duration: 0.2 }}
       whileHover={{ y: !isOpen ? -15 : 0 }}
       whileTap={{ scale: 0.95 }}
-      className="accordion-item  h-[83vh] md:h-[83vh] "
+      className="accordion-item h-[83vh] md:h-[83vh]"
       style={{ backgroundColor }}
     >
       <motion.div
         initial={false}
         transition={{ duration: 0.6 }}
-        className="accordion-header "
+        className="accordion-header"
         onClick={onClick}
       >
         <div className="-rotate-90 md:rotate-0">
-          
           <div className="accordion-header-logo">
             <img src={yandexCloudImage(logo.url)} alt="Client logo" className="filter brightness-0" />
           </div>
           <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
-              <motion.div className={`${tthoves.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
-  {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
-</motion.div>
-
-        {/* <motion.div className={`${tthoves.className} uppercase accordion-title fixed md:static bottom-10`}>{title}</motion.div> */}
+        <motion.div className={`${tthoves.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
+          {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
+        </motion.div>
         <div className="accordion-footer">
           <Image src={tdlogo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
           <Image src={hq} alt="HQ logo" className="accordion-hq hidden md:block" />
         </div>
       </motion.div>
       <AnimatePresence>
-        
         {isOpen && (
           <motion.div
             transition={{ duration: 0.4 }}
@@ -74,49 +70,24 @@ const AccordionItem = ({
             exit={{ width: '0px' }}
             className="accordion-content"
           >
-
-            <div class="relative w-full h-full ">
-            <video
-              src={yandexCloudImage(video.url)}
-              autoPlay
-              loop
-              preload="auto"
-              muted
-              class="w-full h-full object-cover"
-            />
-
-              
-              
-
-              {/* Lines text */}
-                {/* <div class={`${lato.className} overflow-hidden absolute bottom-0 gap-2 inset-0 flex flex-col items-end justify-end font-medium text-[15px] uppercase transition-opacity duration-500`}> */}
-                {/*   <div class="flex h-[40px] font-medium px-2 items-center bg-[#ECEAD3] w-full"> */}
-                {/*     <div class="">Directed by</div> */}
-                {/*     <div class="flex-grow border-b border-black mx-2"></div> */}
-                {/*     <div class="">{directedBy} </div> */}
-                {/*   </div> */}
-                {/*   <div class="flex h-[40px] px-2 items-center bg-[#ECEAD3] w-full"> */}
-                {/*     <div class="">{category}</div> */}
-                {/*     <div class="flex-grow border-b border-black mx-2"></div> */}
-                {/*     <div class="">{year}</div> */}
-                {/*   </div> */}
-                {/* </div> */}
-          </div>
-
-            {/* <video */}
-            {/*   src="https://samplelib.com/lib/preview/webm/sample-5s.webm" */}
-            {/*   autoPlay */}
-            {/*   loop */}
-            {/*   preload="auto" */}
-            {/*   muted */}
-            {/*   style={{ width: '100%', height: '100%', objectFit: 'cover' }} */}
-            {/* /> */}
+            <div className="relative w-full h-full">
+              <video
+                src={yandexCloudImage(video.url)}
+                autoPlay
+                loop
+                preload="auto"
+                muted
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
   );
 };
+
+
 
 const App = ({accordionData}) => {
   const [openIndex, setOpenIndex] = useState(null);

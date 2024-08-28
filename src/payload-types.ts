@@ -143,6 +143,7 @@ export interface Vh {
   category: string;
   logo: number | Media;
   video: number | Media;
+  color?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
