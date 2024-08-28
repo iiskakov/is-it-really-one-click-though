@@ -75,6 +75,7 @@ const accordionData2 = [
   },
 ];
 
+
 const AccordionItem = ({
   title,
   isOpen,
@@ -88,55 +89,53 @@ const AccordionItem = ({
   video,
   isInView,
 }) => {
-          const backgroundColor = colors[index % colors.length];
+  // Use the provided color if available, otherwise fallback to default color logic
+  const backgroundColor = color || colors[index % colors.length];
 
-
-      return(
-  <motion.div
-    whileHover={{ y: !isOpen ? -15 : 0 }}
-    whileTap={{ scale: 0.95 }}
-    transition={{ duration: 0.2 }}
-    className="mob-accordion-item w-full"
-    style={{ backgroundColor }}
-  >
+  return (
     <motion.div
-      initial={false}
+      whileHover={{ y: !isOpen ? -15 : 0 }}
+      whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
-      className="mob-accordion-header flex flex-row w-full h-[64px] items-center justify-between px-4"
-      onClick={onClick}
+      className="mob-accordion-item w-full"
+      style={{ backgroundColor }}
     >
-      <motion.div className={`${tthoves.className} text-[20px] font-bold`}>
-  {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
-</motion.div>
-
-      {/* <motion.div className={`${tthoves.className} text-[20px] font-bold`}>{title}</motion.div> */}
-      <motion.div className="mob-accordion-year">{year}</motion.div>
-
-    </motion.div>
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          transition={{ duration: 0.2 }}
-          initial={{ height: 0 }}
-          animate={{ height: "240px" }}
-          exit={{ height: "0px" }}
-          className="mob-accordion-content"
-
-        >
-                      <video
-                        playsInline
-              src={yandexCloudImage(video.url)}
-            autoPlay
-            loop
-            muted
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+      <motion.div
+        initial={false}
+        transition={{ duration: 0.2 }}
+        className="mob-accordion-header flex flex-row w-full h-[64px] items-center justify-between px-4"
+        onClick={onClick}
+      >
+        <motion.div className={`${tthoves.className} text-[20px] font-bold`}>
+          {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
         </motion.div>
-      )}
-    </AnimatePresence>
-  </motion.div>
-)
-      };
+
+        <motion.div className="mob-accordion-year">{year}</motion.div>
+      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            transition={{ duration: 0.2 }}
+            initial={{ height: 0 }}
+            animate={{ height: "240px" }}
+            exit={{ height: "0px" }}
+            className="mob-accordion-content"
+          >
+            <video
+              playsInline
+              src={yandexCloudImage(video.url)}
+              autoPlay
+              loop
+              muted
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 
 const App = ({accordionData}) => {
     const [openIndex, setOpenIndex] = useState(null);
