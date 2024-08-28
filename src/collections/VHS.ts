@@ -61,7 +61,7 @@ export const VHS: CollectionConfig = {
       validate: (value) => {
         const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
         if (!hexColorRegex.test(value)) {
-          return 'Пожалуйста введите валидный hex код цвета (например #ff0000)';
+          return 'Пожалуйста  введите валидный hex код цвета (например #ff0000)';
         }
         return true;
       },
