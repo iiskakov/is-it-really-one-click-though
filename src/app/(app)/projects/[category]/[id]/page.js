@@ -362,39 +362,18 @@ export default async function ProjectPage({ params }) {
   );
 }
 
-// Static Paths Generation
-export async function getStaticPaths() {
+
+
+/ Generate static params for all projects at build time
+export async function generateStaticParams() {
   const projects = await payload.find({
     collection: 'projects',
     depth: 1,
   });
 
-  const paths = projects.docs.map((project) => ({
-    params: {
-      category: project.category.toString(),
-      id: project.id.toString(),
-    },
+  return projects.docs.map((project) => ({
+    category: project.category.toString(),
+    id: project.id.toString(),
   }));
-
-  return {
-    paths,
-    fallback: 'blocking', // Use blocking to ensure proper rendering when accessing new paths
-  };
 }
 
-// Static Props Fetching
-export async function getStaticProps({ params }) {
-  const project = await payload.findByID({
-    collection: 'projects',
-    id: params.id.toString(),
-    depth: 2,
-  });
-
-  // Return props and set ISR revalidation
-  return {
-    props: {
-      project,
-    },
-    revalidate: 60, // Revalidate every 60 seconds
-  };
-}
