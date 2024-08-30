@@ -350,31 +350,51 @@ export default async function ProjectPage({ params }) {
       <h1 className={`md:text-[96px] uppercase text-[48px] font-semibold text-white mb-2 ${tthoves.className}`}>
         {project.name}
       </h1>
-      {/* <h2 className="text-lg text-red-600 mb-4 uppercase">{project.category}</h2> */}
-      {/* <div className="text-sm text-white space-y-1 uppercase"> */}
-      {/*   <p>DIRECTED BY: ZHANDOS QAHAR</p> */}
-      {/*   <p>DOP: YERKEBULAN KUANYSHBAYEV</p> */}
-      {/*   <p>1AD: YEVGENIYA MOREVA</p> */}
-      {/*   <p>EXECUTIVE PRODUCER: YERKEBULAN KURISHBAYEV</p> */}
-      {/*   <p>LINE PRODUCER: KAMILLA AZHIBAYEVA</p> */}
-      {/*   <p>PRODUCER ASSISTANT: MADINA TORGAYEVA</p> */}
-      {/*   <p>UPM: DMITRIY KASTORSKIY</p> */}
-      {/* </div> */}
       <div className="flex flex-col gap-16">
         {blocks.map(block => renderBlock(block))}
       </div>
       <Suspense fallback={<></>}>
         <NextProject id={project.id}/>
       </Suspense>
-      {/* <ImageTextBlock variant="variant4"/> */}
-      {/* <ImageTextBlock2 variant="variant1"/> */}
-      {/* <ImageTextBlock3 variant="variant4"/> */}
-      {/* <TextBlock/> */}
-      {/* <TwoImagesBlock/> */}
-      {/* <OneImageBlock/> */}
-
     </div>
-              <FooterNew/>
+      <FooterNew/>
     </>
   );
+}
+
+// Static Paths Generation
+export async function getStaticPaths() {
+  const projects = await payload.find({
+    collection: 'projects',
+    depth: 1,
+  });
+
+  const paths = projects.docs.map((project) => ({
+    params: {
+      category: project.category.toString(),
+      id: project.id.toString(),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking', // Use blocking to ensure proper rendering when accessing new paths
+  };
+}
+
+// Static Props Fetching
+export async function getStaticProps({ params }) {
+  const project = await payload.findByID({
+    collection: 'projects',
+    id: params.id.toString(),
+    depth: 2,
+  });
+
+  // Return props and set ISR revalidation
+  return {
+    props: {
+      project,
+    },
+    revalidate: 60, // Revalidate every 60 seconds
+  };
 }
