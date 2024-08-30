@@ -364,7 +364,6 @@ export default async function ProjectPage({ params }) {
 
 
 
-/ Generate static params for all projects at build time
 export async function generateStaticParams() {
   const projects = await payload.find({
     collection: 'projects',
