@@ -1,4 +1,5 @@
 import type { CollectionAfterChangeHook } from 'payload';
+import type { GlobalAfterChangeHook } from 'payload';
 import { revalidatePath } from 'next/cache';
 
 export const revalidateProjectOrVHS: CollectionAfterChangeHook<any> = ({
@@ -21,4 +22,49 @@ export const revalidateProjectOrVHS: CollectionAfterChangeHook<any> = ({
   }
 
   return doc;
+};
+
+export const revalidateHome: CollectionAfterChangeHook<any> = ({
+  doc,
+  previousDoc,
+  req: { payload },
+}) => {
+  const path = '/'; // Main page path
+
+  payload.logger.info(`Revalidating main page due to changes at path: ${path}`);
+
+  // Revalidate the main page path
+  revalidatePath(path);
+
+  return doc;
+};
+
+// Revalidate About page hook
+export const revalidateGHome: GlobalAfterChangeHook = ({
+  req: { payload },
+}) => {
+  const path = '/';
+
+  payload.logger.info(`Revalidating Home page at path: ${path}`);
+  revalidatePath(path);
+};
+
+// Revalidate About page hook
+export const revalidateAbout: GlobalAfterChangeHook = ({
+  req: { payload },
+}) => {
+  const path = '/about';
+
+  payload.logger.info(`Revalidating About page at path: ${path}`);
+  revalidatePath(path);
+};
+
+// Revalidate Contact page hook
+export const revalidateContact: GlobalAfterChangeHook = ({
+  req: { payload },
+}) => {
+  const path = '/contact';
+
+  payload.logger.info(`Revalidating Contact page at path: ${path}`);
+  revalidatePath(path);
 };

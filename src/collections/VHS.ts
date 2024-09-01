@@ -1,14 +1,19 @@
 import { CollectionConfig } from 'payload'
+import { revalidateHome } from '../hooks/revalidatePath'
+
 
 export const VHS: CollectionConfig = {
   slug: 'vhs', // The API slug for the collection
+  
   access: {
     read: () => true,
   },
   admin:  {
     useAsTitle: 'title',
   },
-
+  hooks: {
+    afterChange: [revalidateHome], // Add the revalidate hook here
+  },
   fields: [
     {
       name: 'title',

@@ -1,9 +1,13 @@
 import { GlobalConfig } from 'payload';
+import { revalidateAbout } from '../hooks/revalidatePath'; 
 
 export const About: GlobalConfig = {
   slug: 'about',
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [revalidateAbout], // Attach the revalidation hook
   },
   fields: [
     {
