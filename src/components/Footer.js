@@ -7,7 +7,7 @@ export default function FooterNew() {
   return (
     <footer className="bg-black text-white py-8">
       <div className={`${lato.className} mx-auto px-4 sm:px-6 lg:px-8`}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Navigation Links */}
           <div className="flex flex-col space-y-4">
             <Link className="hover:underline" href="/">Home</Link>
@@ -36,8 +36,16 @@ export default function FooterNew() {
           {/* Instagram */}
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
-              <p className="font-bold">Insta</p>
+              <p className="font-bold">Instagram</p>
               <a href="https://www.instagram.com/dva.d.prod" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@dva.d.prod</a>
+            </div>
+          </div>
+
+          {/* Vimeo */}
+          <div className="flex flex-col space-y-4 md:self-end">
+            <div>
+              <p className="font-bold">Vimeo</p>
+              <a href="https://vimeo.com/prod2d" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">prod2d</a>
             </div>
           </div>
         </div>
