@@ -3,11 +3,11 @@ import { revalidateHome } from '../hooks/revalidatePath';
 
 export const VHS: CollectionConfig = {
   slug: 'vhs', // The API slug for the collection
-  
+
   access: {
     read: () => true,
   },
-  admin:  {
+  admin: {
     useAsTitle: 'title',
   },
   hooks: {
@@ -50,8 +50,10 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'SVG Logo',
-      // Specify permitted MIME types for logos (SVG)
-      mimeType: ['image/svg+xml'],
+      // Filter to allow only SVG files for logos
+      filterOptions: {
+        mimeType: { equals: 'image/svg+xml' },
+      },
     },
     {
       name: 'video',
@@ -59,8 +61,10 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'Video',
-      // Specify permitted MIME types for video
-      mimeType: ['video/mp4', 'video/webm', 'video/ogg'],
+      // Filter to allow only video formats (MP4, WebM, Ogg)
+      filterOptions: {
+        mimeType: { in: ['video/mp4', 'video/webm', 'video/ogg'] },
+      },
     },
     {
       name: 'color',
