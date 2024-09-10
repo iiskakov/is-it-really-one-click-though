@@ -376,3 +376,5 @@ export async function generateStaticParams() {
   }));
 }
 
+
+export const revalidate = 60 * 5;
