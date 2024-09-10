@@ -1,6 +1,5 @@
-import { CollectionConfig } from 'payload'
-import { revalidateHome } from '../hooks/revalidatePath'
-
+import { CollectionConfig } from 'payload';
+import { revalidateHome } from '../hooks/revalidatePath';
 
 export const VHS: CollectionConfig = {
   slug: 'vhs', // The API slug for the collection
@@ -51,6 +50,8 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'SVG Logo',
+      // Specify permitted MIME types for logos (SVG)
+      mimeType: ['image/svg+xml'],
     },
     {
       name: 'video',
@@ -58,6 +59,8 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'Video',
+      // Specify permitted MIME types for video
+      mimeType: ['video/mp4', 'video/webm', 'video/ogg'],
     },
     {
       name: 'color',
@@ -66,11 +69,10 @@ export const VHS: CollectionConfig = {
       validate: (value) => {
         const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
         if (!hexColorRegex.test(value)) {
-          return 'Пожалуйста  введите валидный hex код цвета (например #ff0000)';
+          return 'Пожалуйста введите валидный hex код цвета (например #ff0000)';
         }
         return true;
       },
     },
   ],
 };
-
