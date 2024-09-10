@@ -367,7 +367,7 @@ export default async function ProjectPage({ params }) {
 export async function generateStaticParams() {
   const projects = await payload.find({
     collection: 'projects',
-    depth: 1,
+    depth: 3,
   });
 
   return projects.docs.map((project) => ({

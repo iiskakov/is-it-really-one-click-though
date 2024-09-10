@@ -183,7 +183,7 @@ const ProjectsPage = async ({ params }) => {
   )
 }
 
-// revalidate projects every hour hour?
-export const revalidate = 60 * 60;
+// revalidate projects every 5 mins
+export const revalidate = 60 * 5;
 
 export default ProjectsPage;
