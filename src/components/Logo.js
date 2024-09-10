@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Logo = () => (
   <div className="logo">
-    <img src="/2d-logo.svg" alt="" style={{ width: '100%' }} />
+    <img src="/admin-logo.svg" alt="" style={{ width: '100%' }} />
   </div>
 );
 
