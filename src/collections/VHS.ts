@@ -50,10 +50,6 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'SVG Logo',
-      // Filter to allow only SVG files for logos
-      filterOptions: {
-        mimeType: { equals: 'image/svg+xml' },
-      },
     },
     {
       name: 'video',
@@ -61,10 +57,6 @@ export const VHS: CollectionConfig = {
       relationTo: 'media',
       required: true,
       label: 'Video',
-      // Filter to allow only video formats (MP4, WebM, Ogg)
-      filterOptions: {
-        mimeType: { in: ['video/mp4', 'video/webm', 'video/ogg'] },
-      },
     },
     {
       name: 'color',
