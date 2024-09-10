@@ -27,6 +27,7 @@ const AccordionItem = ({
   directedBy,
   video,
   isInView,
+  isAnyOpen
 }) => {
 
   // Use the provided color if present, otherwise use the current logic
@@ -54,7 +55,7 @@ const AccordionItem = ({
           <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
         <motion.div className={`${tthoves.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
-          {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
+          {(!isAnyOpen && index === 0) ? "SELECTED WORKS" : title}
         </motion.div>
         <div className="accordion-footer">
           <Image src={tdlogo} alt="2d Production logo" className="scale-150 md:scale-100 accordion-logo opacity-20 md:opacity-100" />
@@ -91,6 +92,7 @@ const AccordionItem = ({
 
 const App = ({accordionData}) => {
   const [openIndex, setOpenIndex] = useState(null);
+   const isAnyOpen = openIndex !== null;
 
   const handleItemClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -118,6 +120,7 @@ const App = ({accordionData}) => {
                 {...item}
                 onClick={() => handleItemClick(index)}
                 isOpen={openIndex === index}
+                isAnyOpen={isAnyOpen}
                 index={index}
               />
             ))}
