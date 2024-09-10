@@ -15,6 +15,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
 import { VHS } from './collections/VHS'
+import  Logo  from '@/components/Logo'
 import  Categories  from './collections/Categories'
 
 
@@ -24,9 +25,19 @@ import { s3Storage } from '@payloadcms/storage-s3'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+
 export default buildConfig({
   admin: {
     user: Users.slug,
+    meta: {
+      titleSuffix: '- 2D Admin',
+    },
+    components: {
+      graphics: {
+        Logo
+      },
+  },
+
   },
   upload: {
     limits: {
