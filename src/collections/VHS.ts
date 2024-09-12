@@ -1,6 +1,5 @@
 import { CollectionConfig } from 'payload';
 import { revalidateHome } from '../hooks/revalidatePath';
-import { validateUpload } from 'payload/fields/validations';
 
 export const VHS: CollectionConfig = {
   slug: 'vhs', // The API slug for the collection
@@ -45,44 +44,26 @@ export const VHS: CollectionConfig = {
       required: true,
       label: 'Category',
     },
+      {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      label: 'SVG Logo',
+      filterOptions: {
+        mimeType: { equals: 'image/svg+xml' }, // Only allow SVG files
+      },
+    },
     {
-  name: 'logo',
-  type: 'upload',
-  relationTo: 'media',
-  required: true,
-  label: 'SVG Logo',
-  filterOptions: {
-    mimeType: { equals: 'image/svg+xml' }, // Only allow SVG files
-  },
-  validate: (value, { siblingData }) => {
-    if (!value) {
-      return 'Logo is required.';
-    }
-    const isValid = validateUpload(value, {
-      mimeType: { equals: 'image/svg+xml' },
-    });
-    return isValid || 'Only SVG files are allowed for the logo.';
-  },
-},
-{
-  name: 'video',
-  type: 'upload',
-  relationTo: 'media',
-  required: true,
-  label: 'Video',
-  filterOptions: {
-    mimeType: { in: ['video/mp4', 'video/webm', 'video/ogg'] }, // Allow only video formats
-  },
-  validate: (value, { siblingData }) => {
-    if (!value) {
-      return 'Video is required.';
-    }
-    const isValid = validateUpload(value, {
-      mimeType: { in: ['video/mp4', 'video/webm', 'video/ogg'] },
-    });
-    return isValid || 'Only MP4, WebM, or Ogg video files are allowed.';
-  },
-}
+      name: 'video',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      label: 'Video',
+      filterOptions: {
+        mimeType: { contains: 'video' },
+      },
+    },
     {
       name: 'color',
       type: 'text',
