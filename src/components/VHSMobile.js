@@ -88,6 +88,7 @@ const AccordionItem = ({
   logo,
   video,
   isInView,
+  isAnyOpen
 }) => {
   // Use the provided color if available, otherwise fallback to default color logic
   const backgroundColor = color || colors[index % colors.length];
@@ -107,7 +108,8 @@ const AccordionItem = ({
         onClick={onClick}
       >
         <motion.div className={`${tthoves.className} text-[20px] font-bold`}>
-          {(!isOpen && index === 0) ? "SELECTED WORKS" : title}
+                    {(!isAnyOpen && index === 0) ? "SELECTED WORKS" : title}
+
         </motion.div>
 
         <motion.div className="mob-accordion-year">{year}</motion.div>
@@ -139,6 +141,7 @@ const AccordionItem = ({
 
 const App = ({accordionData}) => {
     const [openIndex, setOpenIndex] = useState(null);
+   const isAnyOpen = openIndex !== null;
 
   const handleItemClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -168,6 +171,7 @@ const App = ({accordionData}) => {
             {...item}
             isOpen={openIndex === index}
             onClick={() => handleItemClick(index)}
+            isAnyOpen={isAnyOpen}
             index={index}
           />
         ))}
