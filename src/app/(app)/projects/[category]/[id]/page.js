@@ -256,20 +256,32 @@ const OneImageBlock = ({ data }) => {
   );
 };
 
-
-
 const OneVideoBlock = ({ data }) => {
   if (!data.fields) return null;
 
-  const video = data.fields.video;
-
+  const vimeoURL = data.fields.vimeoURL;
 
   return (
-    <div className="md:h-[100vh] w-autorelative overflow-hidden mb-8">
-        <VideoPlayer url={yandexCloudImage(video.url)}/>
-      </div>
+    <div className="md:h-[100vh] w-auto relative overflow-hidden mb-8">
+      <VideoPlayer url={vimeoURL} />
+    </div>
   );
 };
+
+
+
+// const OneVideoBlock = ({ data }) => {
+//   if (!data.fields) return null;
+
+//   const video = data.fields.video;
+
+
+//   return (
+//     <div className="md:h-[100vh] w-autorelative overflow-hidden mb-8">
+//         <VideoPlayer url={yandexCloudImage(video.url)}/>
+//       </div>
+//   );
+// };
 
 const renderBlock = (data) => {
   if (!data.fields) {
