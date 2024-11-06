@@ -9,11 +9,19 @@ import { yandexCloudImage } from '@/utils/functions';
 const ImageGalleryBlock = ({ data }) => {
   const containerRef = useRef(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const [imageAspectRatios, setImageAspectRatios] = useState([]);
 
   const images = data.fields?.images || [];
 
   useEffect(() => {
     if (images.length === 0) return;
+
+    // Calculate aspect ratios for all images to maintain consistency in their display
+    const ratios = images.map(imageObj => {
+      const image = imageObj.image;
+      return image.width && image.height ? image.width / image.height : 1;
+    });
+    setImageAspectRatios(ratios);
 
     const updateConstraints = () => {
       if (containerRef.current) {
@@ -53,6 +61,8 @@ const ImageGalleryBlock = ({ data }) => {
       >
         {images.map((imageObj, index) => {
           const image = imageObj.image;
+          const aspectRatio = imageAspectRatios[index] || 1;
+
           return (
             <div
               key={index}
@@ -60,13 +70,15 @@ const ImageGalleryBlock = ({ data }) => {
               style={{
                 transform: index % 2 !== 0 ? 'scale(0.9)' : 'scale(1)',
                 maxHeight: '100%',
+                width: 'auto',
+                height: 0,
+                paddingBottom: `${100 / aspectRatio}%`, // maintain aspect ratio using padding-bottom
               }}
             >
               <Image
                 src={yandexCloudImage(image.url)}
-                layout="responsive"
-                width={image.width}
-                height={image.height}
+                layout="fill"  // Use layout="fill" to let the image fill the container
+                objectFit="contain"
                 quality={90}
                 className="object-contain max-h-full"
               />
