@@ -115,7 +115,7 @@ const Filter = async ({ currentCategory }) => {
       {categories?.docs?.map((category) => (
         <Link scroll={false} key={category.title} href={`/projects/${category.title}`}>
           <div
-            className={`uppercase px-4 py-2 ${
+            className={` px-4 py-2 ${
               currentCategory === category ? ' text-[#F03021] underline' : 'text-white'}`}
           >
         {category.title}
