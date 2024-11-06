@@ -57,7 +57,7 @@ const Intro = async ({home}) => {
 
 
       <div className="z-10 absolute bottom-[40vh] md:bottom-4 md:right-0 leading-tight pl-4 md:pr-[10vw] md:w-[77vw]">
-        <h1 className={`${tthoves.className} uppercase text-white text-[54px] md:text-5xl leading-none md:text-left font-bold`}>
+        <h1 className={`${tthoves.className} text-white text-[54px] md:text-5xl leading-none md:text-left font-bold`}>
     {home.heading}
         </h1>
       </div>
