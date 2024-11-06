@@ -9,7 +9,7 @@ export default function FooterNew() {
       <div className={`${lato.className} mx-auto px-4 sm:px-6 lg:px-8`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Navigation Links */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-2">
             <Link className="hover:underline" href="/">Home</Link>
             <Link className="hover:underline"  href="/projects/all" prefetch={true}>Works</Link>
             <Link className="hover:underline"  href="/about">About</Link >
