@@ -389,3 +389,6 @@ export async function generateStaticParams() {
 }
 
 
+
+// revalidate projects every 5 mins
+export const revalidate = 60 * 5;
