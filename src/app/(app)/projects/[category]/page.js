@@ -114,7 +114,7 @@ const Filter = async ({ currentCategory }) => {
     <div className={`flex gap-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {categories?.docs?.map((category) => (
         <Link scroll={false} key={category.title} href={`/projects/${encodeURIComponent(category.title)}`}>
-  <div className={`px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
+  <div className={`first:pl-0 px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
     {category.title}
   </div>
 </Link>
@@ -190,7 +190,7 @@ const ProjectsPage = async ({ params }) => {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`whitespace-nowrap md:text-[96px] text-[48px] font-semibold  text-white px-8 ${tthoves.className} uppercase`}>
+        <h1 className={`whitespace-nowrap md:text-[96px] text-[48px] font-semibold  text-white md:px-8 px-4 ${tthoves.className} uppercase`}>
         {works.heading}
       </h1>
       <div className="md:px-8 p-4">
