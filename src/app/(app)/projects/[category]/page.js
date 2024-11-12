@@ -113,14 +113,12 @@ const Filter = async ({ currentCategory }) => {
   return (
     <div className={`flex gap-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {categories?.docs?.map((category) => (
-        <Link scroll={false} key={category.title} href={`/projects/${category.title}`}>
-          <div
-            className={` px-4 py-2 ${
-              currentCategory === category ? ' text-[#F03021] underline' : 'text-white'}`}
-          >
-        {category.title}
-          </div>
-        </Link>
+        <Link scroll={false} key={category.title} href={`/projects/${encodeURIComponent(category.title)}`}>
+  <div className={`px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
+    {category.title}
+  </div>
+</Link>
+
       ))}
     </div>
   );
@@ -128,8 +126,7 @@ const Filter = async ({ currentCategory }) => {
 
 const Projects = async ({ params }) => {
   const payload = await getPayloadHMR({ config });
-
-  const { category } = params;
+  const category = params.category ? decodeURIComponent(params.category) : 'all';
 
   const query = category === "all" ? {} : {
     where: {
@@ -150,6 +147,32 @@ const Projects = async ({ params }) => {
     </div>
   );
 };
+
+
+// const Projects = async ({ params }) => {
+//   const payload = await getPayloadHMR({ config });
+
+//   const category = params.category ? decodeURIComponent(params.category) : 'all';
+
+//   const query = category === "all" ? {} : {
+//     where: {
+//       'category.title': { equals: category },
+//     }
+//   };
+
+//   const projects = await payload.find({
+//     collection: 'projects',
+//     ...query,
+//   });
+
+//   return (
+//     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+//       {projects?.docs?.map(project => (
+//         <ProjectCard key={project.id} project={project} />
+//       ))}
+//     </div>
+//   );
+// };
 
 
 
