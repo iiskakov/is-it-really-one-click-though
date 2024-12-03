@@ -1,12 +1,12 @@
 import React from 'react';
-import { lato } from '@/app/fonts';
+import { inter } from '@/app/fonts';
 import Link from 'next/link';
 
 
 export default function FooterNew() {
   return (
     <footer className="bg-black text-white py-8">
-      <div className={`${lato.className} mx-auto px-4 sm:px-6 lg:px-8`}>
+      <div className={`${inter.className} mx-auto px-4 sm:px-6 lg:px-8`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Navigation Links */}
           <div className="flex flex-col space-y-2 mb-[24px]">
@@ -29,7 +29,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Email</p>
-              <a href="mailto:sales@2d.pro" className="text-gray-400 hover:underline">sales@2d.pro</a>
+              <a href="mailto:marketing@2dpro.kz" className="text-gray-400 hover:underline">marketing@2dpro.kz</a>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Instagram</p>
-              <a href="https://www.instagram.com/dva.d.prod" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@dva.d.prod</a>
+              <a href="https://www.instagram.com/2dprod.kz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@dva.d.prod</a>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Vimeo</p>
-              <a href="https://vimeo.com/prod2d" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">prod2d</a>
+              <a href="https://vimeo.com/2dprodkz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">prod2d</a>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
       <div id="contact" className="flex gap-10 md:flex-row flex-col-reverse justify-between items-center text-white m-8">
         <div className="flex flex-col justify-between md:h-[170px] items-start md:w-[170px] mb-10 md:mb-0">
           <img src="/2d-logo.svg" alt="Logo" className="w-[90vw] mb-8 md:mb-0 h-auto md:h-[80px] md:w-auto" />
-          <span className={`${lato.className} text-[14px]`} >2D PRODUCTION <span className="opacity-30">© 2024</span></span>
+          <span className={`${inter.className} text-[14px]`} >2D PRODUCTION <span className="opacity-30">© 2024</span></span>
   </div>
   <div className="flex flex-col items-center">
     <div className="h-[80px] w-[90vw] md:w-[720px] p-8 flex items-center justify-center mb-4 bg-gray-800 rounded-lg">
@@ -77,7 +77,7 @@ const Footer = () => {
 </div>
 
 
-<div className={`${lato.className} flex flex-wrap  justify-between items-start h-[170px] w-full md:flex-col md:h-[170px] md:w-[170px]`}>
+<div className={`${inter.className} flex flex-wrap  justify-between items-start h-[170px] w-full md:flex-col md:h-[170px] md:w-[170px]`}>
   <div className="w-1/2 md:w-full">
     <p className="opacity-30">INSTAGRAM</p>
     <a href="https://www.instagram.com/DVA.D.PROD" className="mb-2">@DVA.D.PROD</a>

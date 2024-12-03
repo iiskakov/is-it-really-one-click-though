@@ -1,18 +1,24 @@
 import { Orbitron } from 'next/font/google'
-import { Lato } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Anton } from 'next/font/google'
 import { Permanent_Marker } from 'next/font/google'
-import localFont from 'next/font/local'
+// import localFont from 'next/font/local'
 
 export const orbitron = Orbitron({
   subsets: ['latin'],
   display: 'swap',
 })
 
-export const lato = Lato({
-  subsets: ['latin'],
+// export const lato = Lato({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   weight : ['400', '700', '900']
+// })
+
+export const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
   display: 'swap',
-  weight : ['400', '700', '900']
+  weight : ['400','600', '700', '900']
 })
 
 export const anton = Anton({
@@ -27,32 +33,32 @@ export const marker = Permanent_Marker({
 })
 
 
-export const tthoves = localFont({
-  src: [
-    {
-      path: '../public/TTHoves-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/TTHoves-Italic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: '../public/TTHoves-DemiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../public/TTHoves-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/TTHoves-BoldItalic.woff2',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
-});
+// export const inter = localFont({
+//   src: [
+//     {
+//       path: '../public/Inter-Regular.woff2',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../public/Inter-Italic.woff2',
+//       weight: '400',
+//       style: 'italic',
+//     },
+//     {
+//       path: '../public/Inter-DemiBold.woff2',
+//       weight: '600',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../public/Inter-Bold.woff2',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../public/Inter-BoldItalic.woff2',
+//       weight: '700',
+//       style: 'italic',
+//     },
+//   ],
+// });

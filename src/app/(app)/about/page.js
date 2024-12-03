@@ -1,5 +1,5 @@
 import React from 'react';
-import { lato, tthoves } from '@/app/fonts';
+import { lato, inter } from '@/app/fonts';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
 import FooterNew from '@/components/Footer';
@@ -22,10 +22,10 @@ const AboutPage = async () => {
         <Logo />
         <Nav />
         </div>
-                <h1 className={`md:text-[96px] text-[48px] font-semibold  text-white mt-14 px-8 ${tthoves.className} uppercase`}>
+                <h1 className={`md:text-[96px] text-[48px] font-semibold  text-white mt-14 px-8 ${inter.className} uppercase`}>
                   {about.heading}
         </h1>
-    <div className={`${lato.className}`}>
+    <div className={`${inter.className}`}>
         <p className="text-[16px] px-8 mb-[20px] opacity-50">
           {/* 2D */}
         </p>

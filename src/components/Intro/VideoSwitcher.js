@@ -1,5 +1,5 @@
 import React from 'react';
-import { lato } from '@/app/fonts';
+import { inter } from '@/app/fonts';
 
 const generateGradientColors = (startColor, endColor, steps) => {
   const start = parseInt(startColor.slice(1), 16);
@@ -28,7 +28,7 @@ const VideoSwitcher = ({ videos, activeVideo, setActiveVideo, data }) => {
 
   return (
     <div className="absolute bottom-[200px] md:bottom-8 left-5 md:left-8 z-20 font-sans text-sm">
-      <span className={`${lato.className} md:hidden text-base uppercase opacity-30 leading-10`}>selected works</span>
+      <span className={`${inter.className} md:hidden text-base uppercase opacity-30 leading-10`}>selected works</span>
       {videos.map((video, index) => (
         <div
           key={video.id}
@@ -43,7 +43,7 @@ const VideoSwitcher = ({ videos, activeVideo, setActiveVideo, data }) => {
           >
             <circle cx="12" cy="12" r="10" stroke={colors[index]} strokeWidth="4" />
           </svg>
-          <span className={`${lato.className} text-base`}>{video.label}</span>
+          <span className={`${inter.className} text-base`}>{video.label}</span>
         </div>
       ))}
     </div>

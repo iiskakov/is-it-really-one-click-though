@@ -1,4 +1,4 @@
-import { anton, lato } from '@/app/fonts';
+import { anton, inter } from '@/app/fonts';
 import { motion } from 'framer-motion';
 import Link from 'next/link'
 
@@ -46,7 +46,7 @@ const SeeMore = ({ project_name }) => {
 
 
       <button
-        className={`${lato.className} font-bold text-[14px] absolute bottom-0 md:hidden w-full h-20 bg-black text-white text-center uppercase z-50 active:bg-[#F03021]`}>
+        className={`${inter.className} font-bold text-[14px] absolute bottom-0 md:hidden w-full h-20 bg-black text-white text-center uppercase z-50 active:bg-[#F03021]`}>
         See more
 
         <svg

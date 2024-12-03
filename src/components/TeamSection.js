@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { lato } from '@/app/fonts';
+import { inter } from '@/app/fonts';
 import { motion } from "framer-motion";
 import Image from 'next/image';
 import { yandexCloudImage } from '@/utils/functions';
@@ -44,7 +44,7 @@ const TeamMemberCard = ({ member }) => {
           className="w-[400px] h-auto object-cover"
         />
       </div>
-      <div className={`${lato.className} mt-6 w-[360px] flex justify-end flex-col`}>
+      <div className={`${inter.className} mt-6 w-[360px] flex justify-end flex-col`}>
         <ReactMarkdown
           className="mt-2 mb-8 text-[16px] text-gray-300 leading-relaxed"
           components={{

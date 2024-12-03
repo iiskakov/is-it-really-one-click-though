@@ -1,5 +1,5 @@
 import React from 'react';
-import { lato, tthoves } from '@/app/fonts';
+import { lato, inter } from '@/app/fonts';
 import Nav from '@/components/Intro/Nav';
 import ContactForm from '@/components/ContactForm';
 import Logo from '@/components/Intro/Logo';

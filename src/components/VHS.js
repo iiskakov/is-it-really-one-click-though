@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { anton, tthoves, lato } from '@/app/fonts'
+import { anton, inter, lato } from '@/app/fonts'
 
 import tdlogo from "@/public/logo.svg";
 import hq from "@/public/hq.svg";
@@ -52,9 +52,9 @@ const AccordionItem = ({
           <div className="accordion-header-logo">
             <img src={yandexCloudImage(logo.url)} alt="Client logo" className="filter brightness-0" />
           </div>
-          <motion.div className={`${lato.className} text-[14px] accordion-year`}>{year}</motion.div>
+          <motion.div className={`${inter.className} text-[14px] accordion-year`}>{year}</motion.div>
         </div>
-        <motion.div className={`${tthoves.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
+        <motion.div className={`${inter.className} transition-opacity duration-500 uppercase accordion-title fixed md:static bottom-10`}>
           {(!isAnyOpen && index === 0) ? "SELECTED WORKS" : title}
         </motion.div>
         <div className="accordion-footer">

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { anton, tthoves, lato } from '@/app/fonts'
+import { anton, inter, lato } from '@/app/fonts'
 
 import tdlogo from "@/public/logo.svg";
 import hq from "@/public/hq.svg";
@@ -107,7 +107,7 @@ const AccordionItem = ({
         className="mob-accordion-header flex flex-row w-full h-[64px] items-center justify-between px-4"
         onClick={onClick}
       >
-        <motion.div className={`${tthoves.className} text-[20px] font-bold`}>
+        <motion.div className={`${inter.className} text-[20px] font-bold`}>
                     {(!isAnyOpen && index === 0) ? "SELECTED WORKS" : title}
 
         </motion.div>

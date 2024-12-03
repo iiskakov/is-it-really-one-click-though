@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { motion, AnimatePresence, useAnimate } from "framer-motion";
 
 import { anton } from '@/app/fonts';
-import { lato } from '@/app/fonts';
+import { inter } from '@/app/fonts';
 import { orbitron } from '@/app/fonts';
 
 import hq from "@/public/hq.svg";
@@ -38,7 +38,7 @@ const [firstPart, secondPart] = splitProjectName(project_name);
       </div>
 
       <div className="absolute top-1/4 transform -translate-y-1/4 w-full text-center text-black">
-        <div className={`${lato.className} text-[24px] uppercase mt-8 mb-4`}>2024</div>
+        <div className={`${inter.className} text-[24px] uppercase mt-8 mb-4`}>2024</div>
         <div className={`${orbitron.className} text-[8px] uppercase font-extrabold`}>Directed by</div>
           <AnimatePresence initial={false} mode="popLayout">
         <motion.div
@@ -83,7 +83,7 @@ const [firstPart, secondPart] = splitProjectName(project_name);
           </AnimatePresence>
         </div>
 
-        <div className={`${lato.className} flex justify-center align-center`}>
+        <div className={`${inter.className} flex justify-center align-center`}>
           <div className="w-[60px] flex flex-row text-xs items-center font-bold">
             by <Image src={oppo} alt="oppo logo" className="accordion-oppo" />
           </div>

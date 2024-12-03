@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { anton, lato, tthoves } from '@/app/fonts';
+import { anton, lato, inter } from '@/app/fonts';
 import Link from 'next/link';
 import Nav from '@/components/Intro/Nav';
 import Logo from '@/components/Intro/Logo';
@@ -50,10 +50,10 @@ const ProjectCard = ({ project }) => {
         className="object-cover w-full h-[30vh] md:h-[42vh] transform transition-transform duration-200 group-hover:scale-105 aspect-video"
       />
       <div className="bg-black bg-opacity-50 w-full flex flex-col items-start justify-center py-4 md:mt-4 md:mb-16">
-        <h2 className={`text-xl leading-none md:text-[40px] font-bold text-white text-start ${lato.className}`}>
+        <h2 className={`text-xl leading-none md:text-[40px] font-bold text-white text-start ${inter.className}`}>
           {project.name}
         </h2>
-        <p className={`text-sm text-white opacity-50 text-start mb-2 md:mt-8 md:text-[16px] ${lato.className}`}>
+        <p className={`text-sm text-white opacity-50 text-start mb-2 md:mt-8 md:text-[16px] ${inter.className}`}>
           {project.category?.title}
         </p>
       </div>
@@ -75,7 +75,7 @@ const ProjectCard = ({ project }) => {
 //       />
 //       <div className="absolute inset-0 flex flex-col md:items-center items-start justify-end md:justify-center bg-black bg-opacity-50">
 //         <h2 className={`md:text-4xl text-3xl font-bold text-white text-start md:text-center px-4 ${anton.className}`}>{project.name}</h2>
-//     <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${lato.className} uppercase`}> {project.name}</p>
+//     <p className={`text-md md:hidden text-[#F03021] text-start mb-2 px-4 ${inter.className} uppercase`}> {project.name}</p>
 //       </div>
 //     </Link>
 //   );
@@ -119,7 +119,7 @@ const Filter = async ({ currentCategory }) => {
   });
 
   return (
-    <div className={`flex gap-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
+    <div className={`flex gap-2 md:mb-16 mb-10 ${inter.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
       {reorderedCategories?.map((category) => (
         <Link scroll={false} key={category.title} href={`/projects/${encodeURIComponent(category.title)}`}>
           <div className={`first:pl-0 px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
@@ -140,7 +140,7 @@ const Filter = async ({ currentCategory }) => {
 //   });
 
 //   return (
-//     <div className={`flex gap-2 md:mb-16 mb-10 ${lato.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
+//     <div className={`flex gap-2 md:mb-16 mb-10 ${inter.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
 //       {categories?.docs?.map((category) => (
 //         <Link scroll={false} key={category.title} href={`/projects/${encodeURIComponent(category.title)}`}>
 //   <div className={`first:pl-0 px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
@@ -219,7 +219,7 @@ const ProjectsPage = async ({ params }) => {
         <Logo />
         <Nav />
       </div>
-        <h1 className={`whitespace-nowrap md:text-[96px] text-[48px] font-semibold  text-white md:px-8 px-4 ${tthoves.className} uppercase`}>
+        <h1 className={`whitespace-nowrap md:text-[96px] text-[48px] font-semibold  text-white md:px-8 px-4 ${inter.className} uppercase`}>
         {works.heading}
       </h1>
       <div className="md:px-8 p-4">

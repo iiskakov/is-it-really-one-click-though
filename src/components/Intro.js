@@ -1,5 +1,5 @@
 import React from 'react';
-import { anton, lato, tthoves } from '@/app/fonts';
+import { anton, lato, inter } from '@/app/fonts';
 import Link from 'next/link';
 
 import Logo from '@/components/Intro/Logo'
@@ -35,7 +35,7 @@ const Intro = async ({home}) => {
       <Nav/>
       <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
-      <div className={`${lato.className} hidden md:flex absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21]  flex-col`}>
+      <div className={`${inter.className} hidden md:flex absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21]  flex-col`}>
 
         {/* Попросили это убрать */}
         {/* <Link className="hover:underline" href="/projects/Ads">Ads</Link> */}
@@ -51,13 +51,13 @@ const Intro = async ({home}) => {
 
 
        {/* New Text Block */}
-      <div className={`${lato.className} z-10 absolute right-4 md:right-[10vw] top-[30vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
+      <div className={`${inter.className} z-10 absolute right-4 md:right-[10vw] top-[30vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
         <p> {home.text} </p>
       </div>
 
 
       <div className="z-10 absolute bottom-[40vh] md:bottom-4 md:right-0 leading-tight pl-4 md:pr-8 md:w-[77vw]">
-        <h1 className={`${tthoves.className} text-white text-[54px] md:text-5xl leading-none md:text-right font-bold`}>
+        <h1 className={`${inter.className} text-white text-[54px] md:text-5xl leading-none md:text-right font-bold`}>
     {home.heading}
         </h1>
       </div>
