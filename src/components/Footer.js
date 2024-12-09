@@ -21,7 +21,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Phone</p>
-              <a href="tel:+77054959340" className="text-gray-400 hover:underline">+7 705 495 93 40</a>
+              <a href="tel:+77088343020" className="text-gray-400 hover:underline">8 (708) 834 30 20</a>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const Footer = () => {
   </div>
   <div className="w-1/2 md:w-full">
     <p className="opacity-30">PHONE NUMBER</p>
-    <span>+7 705 495 93 40</span>
+    <span>8 (708) 834 30 20</span>
   </div>
 </div>
 

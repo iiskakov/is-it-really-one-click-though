@@ -44,7 +44,7 @@ const Nav = () => {
             <Link className={getLinkClasses('/contact')} href="/contact" onClick={toggleMenu}>Contact</Link>
           </div>
           <div className="absolute flex gap-4 flex-col bottom-20 text-center text-[14px] text-white opacity-40">
-            <p>+7 705 495 93 40</p>
+            <p>8 (708) 834 30 20</p>
             <p>SALES@2D.PRO</p>
             <p>@DVA.D.PROD</p>
           </div>
