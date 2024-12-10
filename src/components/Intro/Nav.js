@@ -29,7 +29,16 @@ const Nav = () => {
       {isMenuOpen && (
         <div className={`${inter.className} fixed inset-0 z-30 bg-black uppercase bg-opacity-100 flex flex-col items-center justify-center text-white text-[16px] font-medium`}>
           <div className="absolute top-5 right-5 cursor-pointer" onClick={toggleMenu}>
-            <img src="/close.svg" alt="X" className="h-[32px] w-auto"/>
+             <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
           </div>
           <div className="h-[70px] border-b-[1px] border-white/20 w-[90vw] items-center flex justify-center">
             <Link className={`${getLinkClasses('/')} mx-4 `} href="/" onClick={toggleMenu}>Home</Link>
