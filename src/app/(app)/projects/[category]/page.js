@@ -210,6 +210,7 @@ const ProjectsPage = async ({ params }) => {
   const payload = await getPayloadHMR({ config });
   const works = await payload.findGlobal({
     slug: 'works', // required
+    pagination: false,
   })
 
   const { category } = params;
