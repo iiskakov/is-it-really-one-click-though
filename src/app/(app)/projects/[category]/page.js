@@ -166,6 +166,7 @@ const Projects = async ({ params }) => {
   const projects = await payload.find({
     collection: 'projects',
     ...query,
+    pagination: false,
   });
 
   return (
