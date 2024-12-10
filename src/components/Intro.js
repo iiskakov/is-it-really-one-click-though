@@ -37,15 +37,12 @@ const Intro = async ({home}) => {
       <Nav/>
       <Video  videoUrl={yandexCloudImage(home.video.url)}/>
 
-      {/* <div className={`${inter.className} hidden md:flex absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21]  flex-col`}> */}
+       <div className={`${inter.className} hidden md:flex absolute md:left-8 left-4 bottom-[15vh] md:bottom-4 gap-2 uppercase w-[170px] font-medium text-left text-white text-[14px] z-[21]  flex-col`}>
 
-      {/*   {/\* Попросили это убрать *\/} */}
-      {/*   {/\* <Link className="hover:underline" href="/projects/Ads">Ads</Link> *\/} */}
-      {/*   {/\* <Link className="hover:underline" href="/projects/Communication">Communication</Link> *\/} */}
-      {/*   {/\* <Link className="hover:underline" href="/projects/Production">Production</Link> *\/} */}
 
-      {/*   <ShowreelModal url={yandexCloudImage(home.showreel.url)} /> */}
-      {/* </div> */}
+
+         <ShowreelModal url={yandexCloudImage(home.showreel.url)} />
+     </div>
 
 
 
