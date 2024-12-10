@@ -54,7 +54,7 @@ const Intro = async ({home}) => {
       </div>
 
 
-      <div className="z-10 absolute bottom-[5vh] md:bottom-4 md:right-0 leading-tight pl-4 pr-4 md:pr-8 md:w-[77vw]">
+      <div className="z-10 absolute bottom-[4vh] md:bottom-4 md:right-0 leading-tight pl-4 pr-4 md:pr-8 md:w-[77vw]">
         <h1 className={`${inter.className} text-white text-[40px] md:text-5xl leading-none md:text-right font-bold`}>
     {home.heading}
         </h1>
