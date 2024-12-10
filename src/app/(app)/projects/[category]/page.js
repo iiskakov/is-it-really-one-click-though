@@ -103,7 +103,6 @@ const ProjectsSkeleton = () => {
   );
 };
 
-
 const Filter = async ({ currentCategory }) => {
   const payload = await getPayloadHMR({ config });
 
@@ -111,11 +110,23 @@ const Filter = async ({ currentCategory }) => {
     collection: 'categories',
   });
 
-  // Reorder categories to make "Commercials" (id 14) the first item
+  // Define the desired order of category IDs
+  const desiredOrder = [14, 17, 18, 19, 20, 21, 22, 23];
+
+  // Reorder categories
   const reorderedCategories = categories?.docs?.sort((a, b) => {
-    if (a.id === 14) return -1; // Move "Commercials" to the start
-    if (b.id === 14) return 1;
-    return 0; // Keep the relative order of other items
+    const indexA = desiredOrder.indexOf(a.id);
+    const indexB = desiredOrder.indexOf(b.id);
+
+    // Categories in desiredOrder come first, others go to the end
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB; // Maintain order within desiredOrder
+    } else if (indexA !== -1) {
+      return -1; // a is in desiredOrder, move it before b
+    } else if (indexB !== -1) {
+      return 1; // b is in desiredOrder, move it before a
+    }
+    return 0; // Keep relative order of other items
   });
 
   return (
@@ -139,19 +150,27 @@ const Filter = async ({ currentCategory }) => {
 //     collection: 'categories',
 //   });
 
+//   // Reorder categories to make "Commercials" (id 14) the first item
+//   const reorderedCategories = categories?.docs?.sort((a, b) => {
+//     if (a.id === 14) return -1; // Move "Commercials" to the start
+//     if (b.id === 14) return 1;
+//     return 0; // Keep the relative order of other items
+//   });
+
 //   return (
 //     <div className={`flex gap-2 md:mb-16 mb-10 ${inter.className} overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}>
-//       {categories?.docs?.map((category) => (
+//       {reorderedCategories?.map((category) => (
 //         <Link scroll={false} key={category.title} href={`/projects/${encodeURIComponent(category.title)}`}>
-//   <div className={`first:pl-0 px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
-//     {category.title}
-//   </div>
-// </Link>
-
+//           <div className={`first:pl-0 px-4 py-2 ${currentCategory === category ? 'text-[#F03021] underline' : 'text-white'}`}>
+//             {category.title}
+//           </div>
+//         </Link>
 //       ))}
 //     </div>
 //   );
 // };
+
+
 
 const Projects = async ({ params }) => {
   const payload = await getPayloadHMR({ config });
