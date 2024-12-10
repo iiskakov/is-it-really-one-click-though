@@ -99,6 +99,7 @@ const ContactForm = ({ contact }) => {
                 className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white opacity-60"
               >
 <option>Select one</option>
+<option>Commercial</option>
  <option>Special Project </option>
  <option>Production Service </option>
  <option>Music Video</option>
