@@ -166,7 +166,7 @@ const Projects = async ({ params }) => {
   const projects = await payload.find({
     collection: 'projects',
     ...query,
-    pagination: false,
+    limit: 1000,
   });
 
   return (
@@ -210,7 +210,7 @@ const ProjectsPage = async ({ params }) => {
   const payload = await getPayloadHMR({ config });
   const works = await payload.findGlobal({
     slug: 'works', // required
-    pagination: false,
+    limit: 100
   })
 
   const { category } = params;
