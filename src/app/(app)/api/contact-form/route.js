@@ -22,7 +22,7 @@ export async function POST(req) {
         },
         body: JSON.stringify({
           chat_id: telegramChatId,
-          text: `New Contact Form Submission:\n\nName: ${name}\nEmail: ${email}\nHow Heard: ${howHeard}\nService: ${service}\nMessage: ${message}`,
+          text: `New  Contact Form Submission:\n\nName: ${name}\nEmail: ${email}\nHow Heard: ${howHeard}\nService: ${service}\nMessage: ${message}`,
         }),
       }
     );
