@@ -37,7 +37,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Instagram</p>
-              <a href="https://www.instagram.com/2dprod.kz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@dva.d.prod</a>
+              <a href="https://www.instagram.com/2dprod.kz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">@2dprod.kz</a>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ export default function FooterNew() {
           <div className="flex flex-col space-y-4 md:self-end">
             <div>
               <p className="font-bold">Vimeo</p>
-              <a href="https://vimeo.com/2dprodkz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">prod2d</a>
+              <a href="https://vimeo.com/2dprodkz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">2dprodkz</a>
             </div>
           </div>
         </div>
