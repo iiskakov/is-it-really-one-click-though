@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import { anton, lato, inter } from '@/app/fonts';
 import Link from 'next/link';
