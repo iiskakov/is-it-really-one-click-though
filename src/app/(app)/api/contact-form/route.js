@@ -28,7 +28,7 @@ export async function POST(req) {
     );
 
     if (!telegramResponse.ok) {
-      throw new Error(telegramResponse);
+      throw new Error(telegramResponse.error);
     }
 
     // Need to pay to resend to do this
