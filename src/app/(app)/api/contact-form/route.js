@@ -28,7 +28,7 @@ export async function POST(req) {
     );
 
     if (!telegramResponse.ok) {
-      throw new Error('Failed to send message to Telegram');
+      throw new Error(telegramResponse);
     }
 
     // Need to pay to resend to do this
