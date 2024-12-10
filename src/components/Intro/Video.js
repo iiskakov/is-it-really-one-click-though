@@ -11,7 +11,6 @@ export default function Videos({ videoUrl }) {
           style={{ scale: 1.2}}
           muted
           loop
-          preload="auto"
         />
   );
 };
