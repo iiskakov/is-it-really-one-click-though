@@ -98,11 +98,14 @@ const ContactForm = ({ contact }) => {
                 id="service"
                 className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white opacity-60"
               >
-                <option>Select one</option>
-                <option>Commercial</option>
-                <option>Production</option>
-                <option>Events</option>
-                <option>Other</option>
+<option>Select one</option>
+ <option>Special Project </option>
+ <option>Production Service </option>
+ <option>Music Video</option>
+ <option>Podcasts</option>
+ <option>YouTube Show</option>
+ <option>Artist Collaborations</option>
+ <option>Photo Production</option>
               </select>
             </div>
             <div>
