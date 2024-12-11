@@ -49,14 +49,17 @@ const Intro = async ({home}) => {
 
 
        {/* New Text Block */}
-      <div className={`${inter.className} z-10 absolute right-4 md:right-[10vw] top-[30vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}>
-        <p> {home.text} </p>
-      </div>
+      {/* <div className={`${inter.className} z-10 absolute right-4 md:right-[10vw] top-[30vh] md:top-[50vh] w-[170px] text-right text-white text-sm`}> */}
+      {/*   {/\* <p> {home.text} </p> *\/} */}
+      {/*   Full-Cycle Production Service in Kazakhstan and Central Asia */}
+      {/* </div> */}
+
 
 
       <div className="z-10 absolute bottom-[4vh] md:bottom-4 md:right-0 leading-tight pl-4 tracking-tighter  md:pr-8 md:w-[53vw]">
         <h1 className={`${inter.className} text-white text-[40px] md:text-5xl leading-none md:text-right font-bold`}>
-    {home.heading}
+          <div className="md:hidden"> {home.heading} </div>
+          <div className="hidden md:block">Full-Cycle Production Service in <br/> Kazakhstan and Central Asia</div>
         </h1>
       </div>
       {/* Временно отлючаем кассеты */}
