@@ -96,17 +96,18 @@ const ContactForm = ({ contact }) => {
               </label>
               <select
                 id="service"
-                className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white"
+                className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white "
               >
-<option>Select one</option>
-<option>Commercial</option>
- <option>Special Project </option>
- <option>Production Service </option>
- <option>Music Video</option>
- <option>Podcasts</option>
- <option>YouTube Show</option>
- <option>Artist Collaborations</option>
- <option>Photo Production</option>
+                <option className="text-black">Select one</option>
+<option className="text-black">Commercial</option>
+<option className="text-black">Special Project</option>
+<option className="text-black">Production Service</option>
+<option className="text-black">Music Video</option>
+<option className="text-black">Podcasts</option>
+<option className="text-black">YouTube Show</option>
+<option className="text-black">Artist Collaborations</option>
+<option className="text-black">Photo Production</option>
+
               </select>
             </div>
             <div>
