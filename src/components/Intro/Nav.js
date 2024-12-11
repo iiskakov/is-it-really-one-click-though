@@ -55,7 +55,7 @@ const Nav = () => {
           <div className="absolute flex gap-4 flex-col bottom-20 text-center text-[14px] text-white opacity-40">
             <p>8 (708) 834 30 20</p>
             <p>marketing@2dpro.kz</p>
-            <p>@2dpro.kz</p>
+            <p>@2dprod.kz</p>
           </div>
         </div>
       )}
