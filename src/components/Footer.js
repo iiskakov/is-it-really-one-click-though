@@ -80,11 +80,11 @@ const Footer = () => {
 <div className={`${inter.className} flex flex-wrap  justify-between items-start h-[170px] w-full md:flex-col md:h-[170px] md:w-[170px]`}>
   <div className="w-1/2 md:w-full">
     <p className="opacity-30">INSTAGRAM</p>
-    <a href="https://www.instagram.com/DVA.D.PROD" className="mb-2">@DVA.D.PROD</a>
+    <a href="https://www.instagram.com/2dprod.kz" className="mb-2">@2dprod.kz</a>
   </div>
   <div className="w-1/2 md:w-full">
     <p className="opacity-30">E-MAIL</p>
-    <a href="mailto:SALES@2D.PRO" className="mb-2">SALES@2D.PRO</a>
+    <a href="mailto:marketing@2dpro.kz" className="mb-2">marketing@2dpro.kz</a>
   </div>
   <div className="w-1/2 md:w-full">
     <p className="opacity-30">PHONE NUMBER</p>
