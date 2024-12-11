@@ -56,7 +56,7 @@ const Intro = async ({home}) => {
 
 
 
-      <div className="z-10 absolute bottom-[4vh] md:bottom-4 md:right-0 leading-tight pl-4 tracking-tighter  md:pr-8 md:w-[53vw]">
+      <div className="z-10 absolute bottom-[4vh] md:bottom-4 md:right-0 leading-tight pl-4 tracking-tighter  md:pr-8 md:w-[60vw]">
         <h1 className={`${inter.className} text-white text-[40px] md:text-5xl leading-none md:text-right font-bold`}>
           <div className="md:hidden"> {home.heading} </div>
           <div className="hidden md:block">Full-Cycle Production Service in <br/> Kazakhstan and Central Asia</div>
