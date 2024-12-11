@@ -96,7 +96,7 @@ const ContactForm = ({ contact }) => {
               </label>
               <select
                 id="service"
-                className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white opacity-60"
+                className="mt-2 w-full p-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-white"
               >
 <option>Select one</option>
 <option>Commercial</option>
