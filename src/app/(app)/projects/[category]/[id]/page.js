@@ -359,7 +359,7 @@ export default async function ProjectPage({ params }) {
         <Logo />
         <Nav />
       </div>
-      <h1 className={`md:text-[96px] leading-none uppercase text-[48px] font-semibold text-white mb-8 ${inter.className}`}>
+      <h1 className={`md:text-[72px] leading-none  text-[48px] font-semibold text-white mb-8 ${inter.className}`}>
         {project.name}
       </h1>
       <div className="flex flex-col gap-16">

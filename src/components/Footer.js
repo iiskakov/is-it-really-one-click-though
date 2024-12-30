@@ -51,7 +51,7 @@ export default function FooterNew() {
         </div>
 
         <div className="mt-8 text-center text-gray-600 lg:text-left">
-          <p>2D Production © 2024</p>
+          <p>© 2D Production. All Rights Reserved. 2024.</p>
         </div>
       </div>
     </footer>
